@@ -44,6 +44,7 @@ p + p { margin-top: 1rem; }
 .official-link span { margin-left: 16px; }
 .site-header a:focus-visible, .site-footer a:focus-visible, .next-step a:focus-visible { outline-color: white; }
 .primary-nav { background: #fff; border-bottom: 1px solid var(--line); }
+.primary-nav a:focus-visible { outline-color: var(--sky); }
 .nav-inner { display: flex; gap: 38px; min-height: 63px; align-items: stretch; }
 .nav-inner a { font-size: 1rem; display: flex; align-items: center; text-decoration: none; border-bottom: 3px solid transparent; padding-top: 3px; }
 .nav-inner a:hover, .nav-inner a[aria-current='page'] { border-bottom-color: var(--ook-blue); }
@@ -99,6 +100,9 @@ p + p { margin-top: 1rem; }
 .site-footer { background: #082147; color: #e0e9f7; padding-block: 47px; font-size: .95rem; }
 .footer-inner { display: flex; justify-content: space-between; gap: 55px; }
 .footer-title { color: white; font-family: var(--heading-font); font-size: 1.35rem; font-weight: 700; }
+.footer-title span { display: inline-block; }
+.footer-inner > div:first-child { max-width: 680px; }
+.footer-links { flex-shrink: 0; }
 .footer-title + p { margin-top: 5px; }
 .footer-note { color: #bccce3; font-size: .9rem; }
 .footer-links { display: flex; flex-direction: column; gap: 14px; justify-content: center; }
@@ -119,6 +123,20 @@ p + p { margin-top: 1rem; }
 .article-callout h2 { margin-top: 0; }
 .not-found { padding-block: 90px; }
 .not-found h1 + p { margin-block: 25px; }
+.next-faq { color: white; font-weight: 600; }
+.next-faq:hover { color: #bcecff; }
+.faq-topics { display: flex; flex-wrap: wrap; gap: 10px 25px; border-bottom: 1px solid var(--line); padding-bottom: 25px; font-size: 1rem; }
+.faq-topics a { padding-block: 5px; }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-item summary { padding: 22px 8px 22px 0; cursor: pointer; color: var(--midnight); font-size: 1.15rem; font-weight: 700; line-height: 1.4; }
+.faq-item summary::marker { color: var(--sky); }
+.faq-item summary:hover { color: var(--sky); }
+.faq-item[open] { padding-bottom: 12px; }
+.faq-item[open] summary { padding-bottom: 3px; }
+.faq-answer { padding-left: 23px; }
+.faq-answer ul { padding-left: 22px; }
+@media (max-width: 1150px) { .footer-inner { flex-wrap: wrap; } }
+@media print { .faq-item::details-content { display: block; content-visibility: visible; } }
 @media (min-width: 1500px) { .hero-photo img { height: 410px; } }
 @media (max-width: 1050px) {
   .shell { width: calc(100% - 64px); }

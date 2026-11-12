@@ -25,6 +25,8 @@ Astro generates static HTML in `dist/`. No server runtime, database, account sys
 
 - `src/pages/index.mdx` — discovery landing page.
 - `src/pages/business-analysis.mdx` — illustrative walkthrough and an example of long-form MDX authoring.
+- `src/pages/faq.mdx` — question-led directory of authoritative references. The maintained `FAQ - ITBA.docx` in the `006 Open House Materials` library guides the questions and grouping; the original DOCX stays in its library. Link directly to NAIT and IIBA under the relevant question instead of copying their answers or figures into the site.
+- `src/components/FaqItem.astro` — native, keyboard-accessible question disclosure; no JavaScript required.
 - `src/layouts/PageLayout.astro` — reusable layout for additional MDX pages. Use `layout`, `title`, `description`, and optional `eyebrow` in frontmatter, following the walkthrough.
 - `src/layouts/BaseLayout.astro` — document metadata, Adobe Fonts embed, header, and footer.
 - `src/styles/global.css` — shared design tokens, typography, layout, and responsive styles.
@@ -34,6 +36,8 @@ Astro generates static HTML in `dist/`. No server runtime, database, account sys
 Internal links start at `/`, because this repository is the organization's root website. Do not set an Astro `base` to the repository name. `site` is configured as `https://nait-itba.github.io`.
 
 The example booking scenario is fictional and labelled as illustrative. Program details, admission requirements, tuition, and dates link to the official NAIT program page rather than duplicating information that changes.
+
+Content rule: when an authoritative external source maintains the information, link to it under the relevant FAQ question. Do not hard-code program duration, course counts, workload, admission availability, contact details, salary figures, survey statistics, or other externally maintained answers. Use descriptive link labels and identify membership requirements. [IIBA’s 2026 public highlights](https://www.iiba.org/career-resources/the-global-state-of-business-analysis/the-global-state-of-business-analysis-reports-and-surveys/the-global-state-of-business-analysis-2026/) are accessible without signing in; the complete report is a membership benefit. The website links to the public overview and does not host the report.
 
 ## Branding and source assets
 
