@@ -1,0 +1,72 @@
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+
+<BaseLayout title="Discover IT Business Analysis | NAIT" description="Explore IT Business Analysis at NAIT: connect people, business needs and technology, see an example of business analysis, and find your next step.">
+  <Hero />
+
+  <section className="introduction shell" aria-labelledby="intro-title">
+    <div>
+      <p className="eyebrow">Curiosity has a practical side</p>
+      <h2 id="intro-title">Before the solution,<br />understand the people.</h2>
+    </div>
+    <div className="intro-copy">
+      <p>Why does a simple task feel complicated? What information is missing? How could a service work better for the people who use it?</p>
+      <p>Business analysts explore questions like these. At NAIT, IT Business Analysis connects that curiosity with requirements gathering, process modelling, research and collaboration across business and technology.</p>
+    </div>
+  </section>
+
+  <section className="identity-section" aria-labelledby="identity-title">
+    <div className="shell">
+      <div className="section-heading">
+        <div><p className="eyebrow">The ITBA mindset</p><h2 id="identity-title">Three ways to make a difference.</h2></div>
+        <p>Different perspectives.<br />One focus: understanding what matters.</p>
+      </div>
+      <div className="identities">
+        <article className="identity">
+          <span className="identity-number" aria-hidden="true">01</span>
+          <h3>Change agent</h3>
+          <p>Understand the need before recommending a change. Consider who it affects, what could improve and whether change is the right next step.</p>
+          <p className="identity-question">“What would make this better for people?”</p>
+        </article>
+        <article className="identity">
+          <span className="identity-number" aria-hidden="true">02</span>
+          <h3>Trusted advisor</h3>
+          <p>Listen carefully, weigh evidence and explain options clearly. Build trust by helping people make informed decisions.</p>
+          <p className="identity-question">“Whose perspective do we need to understand?”</p>
+        </article>
+        <article className="identity">
+          <span className="identity-number" aria-hidden="true">03</span>
+          <h3>Information engineer</h3>
+          <p>Bring structure to complex information. Connect ideas, processes and data so business and technical teams can work together.</p>
+          <p className="identity-question">“How can we make the information clearer?”</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section className="example-section shell" aria-labelledby="example-title">
+    <div className="example-copy">
+      <p className="eyebrow">Business analysis in everyday life</p>
+      <h2 id="example-title">A better booking experience starts with a question.</h2>
+      <p>Imagine a campus club struggling to book meeting rooms. Is a new app the answer—or is there something else to understand first?</p>
+      <p>Follow a simple, illustrative example from the first conversation to a clearer set of options.</p>
+      <a className="text-link" href="/business-analysis/">Walk through the example <span aria-hidden="true">→</span></a>
+    </div>
+    <div className="process-panel">
+      <p className="panel-label">FROM QUESTION TO CLARITY</p>
+      <ol className="process">
+        <li><span aria-hidden="true">01</span><div><h3>Listen</h3><p>What is difficult, and for whom?</p></div></li>
+        <li><span aria-hidden="true">02</span><div><h3>Make sense of it</h3><p>Where does the process break down?</p></div></li>
+        <li><span aria-hidden="true">03</span><div><h3>Explore the options</h3><p>What could help, and how would we know?</p></div></li>
+      </ol>
+      <p className="panel-note">An illustrative scenario, not a reported NAIT project.</p>
+    </div>
+  </section>
+
+  <section className="next-step" id="your-next-step" aria-labelledby="next-title">
+    <div className="shell next-inner">
+      <div><p className="eyebrow">Your next step</p><h2 id="next-title">Could ITBA be your next chapter?</h2><p>Explore the diploma, see what you’ll learn and find current admission information on NAIT’s official program page.</p></div>
+      <a className="button button-light" href="https://nait.ca/itbusiness">Explore ITBA at NAIT <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,23 @@
+---
+const { pathname } = Astro.url;
+---
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell masthead">
+    <a class="brand" href="/" aria-label="NAIT IT Business Analysis home">
+      <picture>
+        <source media="(max-width: 800px)" srcset="/brand/nait-shield.svg" />
+        <img src="/brand/nait-logo-white.svg" width="200" height="50" alt="NAIT" />
+      </picture>
+      <span>IT Business<br />Analysis</span>
+    </a>
+    <a class="official-link" href="https://nait.ca/itbusiness">Official program information <span aria-hidden="true">↗</span></a>
+  </div>
+  <nav class="primary-nav" aria-label="Main navigation">
+    <div class="shell nav-inner">
+      <a href="/" aria-current={pathname === '/' ? 'page' : undefined}>Discover ITBA</a>
+      <a href="/business-analysis/" aria-current={pathname === '/business-analysis/' ? 'page' : undefined}>Business analysis in practice</a>
+      <a href="/#your-next-step">Your next step <span aria-hidden="true">↗</span></a>
+    </div>
+  </nav>
+</header>
