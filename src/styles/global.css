@@ -267,10 +267,11 @@ p + p { margin-top: 1rem; }
   .identity-page .article-callout { padding: 24px 20px; }
 }
 
-/* Strong callout: the one purple-and-yellow block allowed inside a page's content. Use sparingly. */
+/* Strong callout: the purple-and-yellow block for a page's most important messages. Use sparingly. */
 .callout-strong { background: var(--nait-purple); color: #fff; border-top: 5px solid var(--nait-yellow); padding: 28px 32px; margin-block: 30px 10px; }
 .exemplars .callout-strong h4 { color: #fff; font-size: 1.45rem; margin-bottom: 14px; }
 .callout-strong p { margin-block: 0 14px; max-width: 80ch; }
+.callout-strong p:last-child { margin-bottom: 0; }
 .callout-points { list-style: none; margin: 22px 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .exemplars .callout-points li { margin: 0; border-top: 3px solid var(--nait-yellow); padding-top: 12px; font-size: 1rem; }
 .callout-points strong { display: block; font-family: var(--heading-font); font-size: 1.15rem; margin-bottom: 4px; }
