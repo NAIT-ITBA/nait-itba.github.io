@@ -33,8 +33,7 @@ const banner = banners[name];
 </figure>
 
 <style>
-  /* Full width of the window. On wide screens the height is capped and the photo is
-     cropped from the top, so the ITBA Ook strip along the bottom always shows in full. */
+  /* Full width of the window, always shown whole: the height follows the 4:1 shape, never cropped. */
   .page-banner { margin: 0; background: var(--midnight); }
-  .page-banner img { display: block; width: 100%; height: min(25vw, 340px); object-fit: cover; object-position: center bottom; }
+  .page-banner img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 1; }
 </style>
