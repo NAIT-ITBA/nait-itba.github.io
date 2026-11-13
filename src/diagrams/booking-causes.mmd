@@ -1,13 +1,19 @@
 flowchart RL
   accTitle: Hypotheses about slow room-booking confirmation
   accDescr: Start at slow booking confirmation on the left and ask Why at each connector while tracing possible causes to the right. Arrows point from possible causes to their effects. Missing request guidance and requests arriving through several channels may lead to missing details and repeated clarification. Missing approval cover may create an approval queue. Manual calendar updates may cause inconsistent availability and further clarification. Each pathway is a hypothesis to investigate. Two end causes include proposed actions to test: pilot a request checklist and compare missing-detail rates; assign a deputy approver and an escalation time to mitigate approval gaps.
-  checklist["No shared request checklist<br/>Problem-solving: pilot a request checklist;<br/>compare missing-detail rates before and after."] -->|Why?| details["Missing booking details"]
+  checklist["No shared request checklist"] -->|Why?| details["Missing booking details"]
   channels["Requests split across channels"] -->|Why?| details
   details -->|Why?| clarification["Repeated clarification"]
   clarification -->|Why?| effect["SLOW BOOKING\nCONFIRMATION"]
-  cover["No agreed approval cover<br/>Mitigation: assign a deputy approver<br/>and agree when to escalate waiting requests."] -->|Why?| queue["Requests wait for one coordinator"]
+  cover["No agreed approval cover"] -->|Why?| queue["Requests wait for one coordinator"]
   queue -->|Why?| effect
   manual["Calendar updated manually"] -->|Why?| availability["Conflicting availability information"]
   availability -->|Why?| clarification
+  checklistNote@{ shape: comment, label: "Problem-solving<br/>Pilot a request checklist;<br/>compare missing-detail rates<br/>before and after." }
+  coverNote@{ shape: comment, label: "Mitigation<br/>Assign a deputy approver<br/>and agree when to escalate<br/>waiting requests." }
+  checklistNote -.- checklist
+  coverNote -.- cover
+  classDef annotation fill:none,color:#002d74,stroke:#005cb9,stroke-width:1px;
+  class checklistNote,coverNote annotation;
   classDef effect fill:#002d74,color:#ffffff,stroke:#00a0df,stroke-width:3px;
   class effect effect;
