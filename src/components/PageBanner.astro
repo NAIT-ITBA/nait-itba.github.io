@@ -29,11 +29,42 @@ const { name, lazy = false } = Astro.props;
 const banner = banners[name];
 ---
 <figure class="page-banner">
-  <Image src={banner.src} alt={banner.alt + strip} widths={[480, 640, 820, 1200]} sizes="100vw" width={1200} format="webp" quality={80} loading={lazy ? 'lazy' : 'eager'} decoding="async" />
+  <svg class="facet facet-left" viewBox="0 0 400 300" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+    <g>
+      <rect width="400" height="300" fill="#00a0df" />
+      <polygon points="0,0 250,0 400,150 250,300 0,300" fill="#0077c8" />
+      <polygon points="0,0 160,0 310,150 160,300 0,300" fill="#005cb9" />
+      <polygon points="0,0 70,0 220,150 70,300 0,300" fill="#003f9a" />
+      <polygon points="0,0 -20,0 130,150 -20,300 0,300" fill="#002d74" />
+    </g>
+  </svg>
+  <svg class="facet facet-right" viewBox="0 0 400 300" preserveAspectRatio="xMinYMid slice" aria-hidden="true">
+    <g transform="translate(400 0) scale(-1 1)">
+      <rect width="400" height="300" fill="#00a0df" />
+      <polygon points="0,0 250,0 400,150 250,300 0,300" fill="#0077c8" />
+      <polygon points="0,0 160,0 310,150 160,300 0,300" fill="#005cb9" />
+      <polygon points="0,0 70,0 220,150 70,300 0,300" fill="#003f9a" />
+      <polygon points="0,0 -20,0 130,150 -20,300 0,300" fill="#002d74" />
+    </g>
+  </svg>
+  <div class="page-banner-inner">
+    <Image src={banner.src} alt={banner.alt + strip} widths={[480, 640, 820, 1200]} sizes="(max-width: 1200px) 100vw, 1200px" width={1200} format="webp" quality={80} loading={lazy ? 'lazy' : 'eager'} decoding="async" />
+  </div>
 </figure>
 
 <style>
-  /* Full width of the window, always shown whole: the height follows the 4:1 shape, never cropped. */
-  .page-banner { margin: 0; background: var(--midnight); }
+  /* The banner is shown whole at its true size (at most 1200px wide), so it stays sharp.
+     Around it, a band fills the window: blue facets point in toward the photo, and the
+     banner's own strip (dark blue on the left, bright blue on the right) carries on to
+     both edges. The strip is the bottom 17.5% of every banner. */
+  .page-banner { --strip: 17.5%; --left: #002d74; --right: #00aeff; position: relative; overflow: hidden; margin: 0;
+    background: linear-gradient(to right, var(--left) 50%, var(--right) 50%) bottom / 100% var(--strip) no-repeat; }
+  .page-banner-inner { position: relative; max-width: 1200px; margin-inline: auto; }
   .page-banner img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 1; }
+  /* The artwork has a one-pixel sliver of photo at the left end of the strip; cover it. */
+  .page-banner-inner::before { content: ''; position: absolute; left: 0; bottom: 0; width: 2px; height: var(--strip); background: var(--left); }
+  .facet { position: absolute; top: 0; height: calc(100% - var(--strip)); width: calc((100% - 1200px) / 2); }
+  .facet-left { left: 0; }
+  .facet-right { right: 0; }
+  @media (max-width: 1200px) { .facet { display: none; } }
 </style>
