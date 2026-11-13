@@ -37,6 +37,75 @@ Club organizers describe slow confirmations and uncertainty about room availabil
 
 The proposed product covers room requests, staff decisions, booking status and requester notifications. It connects to existing sign-in, calendar and email services. Payments, public event ticketing and a replacement campus calendar are outside this pilot.
 
+<h2 id="facilitation">Facilitation plan</h2>
+
+Much of a business analyst’s work happens in conversation. A facilitation plan sets out why people are meeting, who needs to be heard, how each activity will run and what the group will leave with. Jordan Patel prepared this plan for the pilot’s first discovery workshop.
+
+<div className="plan-grid">
+  <section>
+    <h4>Purpose</h4>
+    <p>Build a shared picture of how clubs book rooms today and agree which problems the pilot should address first.</p>
+  </section>
+  <section>
+    <h4>By the end, we will have</h4>
+    <ul>
+      <li>A sketch of today’s booking journey that organizers and Facilities both recognize</li>
+      <li>The top three problems, ranked by the group</li>
+      <li>A list of open questions, each with an owner and a date</li>
+    </ul>
+  </section>
+  <section>
+    <h4>People and roles</h4>
+    <ul>
+      <li><strong>Facilitator:</strong> Jordan Patel guides the process and stays neutral on the answers</li>
+      <li><strong>Sponsor:</strong> Maya Chen opens the session, then speaks last so others are not led</li>
+      <li><strong>Contributors:</strong> four club organizers, two Facilities coordinators and an Accessibility Office adviser</li>
+      <li><strong>Scribe and timekeeper:</strong> Alex Rivera, who also listens for technical constraints</li>
+    </ul>
+  </section>
+  <section>
+    <h4>Before the session</h4>
+    <ul>
+      <li>Send the purpose, agenda and two prompt questions three working days ahead</li>
+      <li>Ask each participant about access needs and offer a written way to contribute</li>
+      <li>Bring a sample of recent booking requests so the discussion starts from evidence</li>
+    </ul>
+  </section>
+  <section>
+    <h4>Ground rules</h4>
+    <ul>
+      <li>One conversation at a time</li>
+      <li>Describe what happens, not who is at fault</li>
+      <li>Write first, then discuss, so quieter voices are heard</li>
+      <li>Off-topic items go to a visible parking lot</li>
+    </ul>
+  </section>
+  <section>
+    <h4>If the session goes off course</h4>
+    <ul>
+      <li><strong>One voice dominates:</strong> return to silent writing or a round-robin</li>
+      <li><strong>A disagreement stalls:</strong> record both views as an open question with an owner</li>
+      <li><strong>Time runs short:</strong> protect the prioritizing step and move open questions to follow-up</li>
+    </ul>
+  </section>
+</div>
+
+<ExampleTable label="Facilitation plan agenda; a 90-minute discovery workshop">
+
+| Time | Activity | How it runs | What it produces |
+| --- | --- | --- | --- |
+| 0–10 min | Open the session | The sponsor states the purpose. The facilitator confirms the agenda, roles and ground rules. | A shared understanding of why the group is meeting |
+| 10–30 min | Walk through today’s booking journey | Participants place steps on a shared timeline. Organizers go first, then Facilities add what happens after a request arrives. | A current-state process sketch |
+| 30–50 min | Find where it hurts | Everyone writes pain points silently, then the group clusters similar notes and names each cluster. | Grouped problem themes |
+| 50–55 min | Break | — | — |
+| 55–70 min | Prioritize | Participants dot-vote on the themes against the pilot’s goals, then discuss any surprising results. | The top three problems, ranked |
+| 70–85 min | Surface what we do not know | A round-robin collects open questions and assumptions. Each one gets an owner and a date. | An open-question log |
+| 85–90 min | Close | The facilitator recaps decisions and next steps and asks for one-line feedback on the session. | Agreed next steps |
+
+</ExampleTable>
+
+**After the session:** Jordan sends a summary within two working days and asks participants to confirm or correct it. The results feed the stakeholder list, the requirements and the cause-and-effect map below, and the sponsor reviews the parking lot.
+
 <h2 id="organization">Project organization chart</h2>
 
 Solid lines show project accountability. Dotted lines show advice and consultation, not employment reporting relationships.
@@ -93,6 +162,18 @@ These are proposed outcomes for the fictional four-week pilot, not measured resu
 ### Stakeholder requirements
 
 The needs below connect stakeholders to those outcomes. Product-facing needs include user stories; operational needs are stated directly.
+
+<aside className="callout-strong" aria-labelledby="sr-callout-title">
+  <h4 id="sr-callout-title">Stakeholder requirements give people’s needs a voice</h4>
+  <p>IIBA’s Business Analysis Standard describes stakeholder requirements as the needs of stakeholders that must be met to achieve the business requirements. They are the bridge between what an organization wants to achieve and what a solution must do. Without them, a solution can meet its specification and still fail the people it was built for.</p>
+  <p>This is where a business analyst is uniquely positioned. You work between sponsors, users, operations and delivery teams, so you can:</p>
+  <ul className="callout-points">
+    <li><strong>Understand</strong> Look past the first request to find the need behind it.</li>
+    <li><strong>Describe</strong> State each need clearly enough to trace to a business outcome and to test.</li>
+    <li><strong>Advocate</strong> Keep those needs visible when scope, cost and schedule decisions are made.</li>
+  </ul>
+  <p className="callout-source"><a href="https://www.iiba.org/career-resources/a-business-analysis-professionals-foundation-for-success/the-foundation-for-effective-business-analysis/">See how IIBA’s Business Analysis Standard classifies requirements</a></p>
+</aside>
 
 <ol className="requirement-list">
   <li><h4>SR01 — Provide enough information to request a suitable room</h4><p><strong>Stakeholder:</strong> S04 club organizers. <strong>Supports:</strong> BR01, BR03.</p><p>Organizers need to describe timing, capacity, equipment and access needs without avoidable follow-up.</p><p><strong>User story:</strong> As a club organizer, I want to submit my room needs together so that Facilities can assess my request without chasing missing details.</p></li>
