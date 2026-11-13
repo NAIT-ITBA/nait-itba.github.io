@@ -10,18 +10,7 @@ import organization from '../diagrams/project-organization.mmd?raw';
 import context from '../diagrams/booking-context.mmd?raw';
 import causes from '../diagrams/booking-causes.mmd?raw';
 
-<nav className="exemplar-nav" aria-label="Exemplar sections">
-  <a href="#live-examples">Process and Kanban</a>
-  <a href="#project">Example project</a>
-  <a href="#organization">Organization chart</a>
-  <a href="#context">Context diagram</a>
-  <a href="#stakeholders">Stakeholders</a>
-  <a href="#requirements">Requirements</a>
-  <a href="#causes">Cause and effect</a>
-  <a href="#risks">Risks</a>
-</nav>
-
-<h2 id="live-examples">Explore a process and a Kanban board</h2>
+<h2 id="live-examples" className="first-exemplar">Explore a process and a Kanban board</h2>
 
 These shared examples let you explore two ways of making work visible. They are separate from the fictional room-booking case below.
 
@@ -84,7 +73,7 @@ The dark box is the proposed booking service. The surrounding people and systems
 
 Use the official visual to compare the categories: [IIBA’s Requirements Types infographic (PDF)](https://www.iiba.org/contentassets/38e412c7b77d456297d953de5bf5ca61/requirement-types-infograph.pdf). **Attribution:** © 2021 International Institute of Business Analysis. The visual remains hosted by IIBA.
 
-The product requirements below are the **solution requirements** for this example. For the authoritative classification, see [IIBA’s Business Analysis Standard](https://www.iiba.org/career-resources/a-business-analysis-professionals-foundation-for-success/the-foundation-for-effective-business-analysis/).
+The **solution requirements** below describe the capabilities and qualities of the proposed booking service needed to meet stakeholder requirements. For the authoritative classification, see [IIBA’s Business Analysis Standard](https://www.iiba.org/career-resources/a-business-analysis-professionals-foundation-for-success/the-foundation-for-effective-business-analysis/).
 
 ### Business requirements
 
@@ -119,20 +108,20 @@ The needs below connect stakeholders to those outcomes. Product-facing needs inc
   <li><h4>SR12 — Keep attendees informed about changes</h4><p><strong>Stakeholders:</strong> S04 club organizers and S05 event attendees. <strong>Supports:</strong> BR02, BR03.</p><p>Organizers need an agreed responsibility for telling attendees about venue or time changes and checking access arrangements. Attendee mailing lists remain outside the booking product.</p></li>
 </ol>
 
-### Product requirements
+### Solution requirements
 
 These statements describe testable behaviour or qualities of the proposed booking service.
 
-<ExampleTable label="Product requirements with acceptance checks">
+<ExampleTable label="Solution requirements with acceptance checks">
 
-| ID | Product requirement and acceptance check | Stakeholder requirements |
+| ID | Solution requirement and acceptance check | Stakeholder requirements |
 | --- | --- | --- |
-| PR01 | The service must accept a request containing club, event date, start/end times, capacity, equipment and access needs. Missing required fields or an end time before the start must prevent submission and identify the field to correct. | SR01 |
-| PR02 | The service must show the requester a status of Submitted, In review, Confirmed, Declined or Cancelled. An authorized approver must be able to record a decision and reason; the requester must see the updated status and reason. | SR02, SR03 |
-| PR03 | Confirmation must recheck and reserve room availability as one consistent operation. In a test with two simultaneous approvals for overlapping times in the same room, no more than one may be confirmed; the other must receive a conflict response. | SR04 |
-| PR04 | Cancellation must release a confirmed allocation. A change to room or time must require fresh approval while preserving the existing confirmation until the change is accepted. Send the requester a notification for each decision or cancellation. | SR02, SR05 |
-| PR05 | Enforce requester, approver and support roles on the service side. A requester must not read another requester’s records. Record the actor and time of each status change; export aggregate decision-time and conflict measures without requester names. | SR07, SR08 |
-| PR06 | A keyboard user must be able to complete five journeys—submit, review status, request a change, cancel and approve—without a pointer, with visible focus and errors announced to assistive technology. Test with the Accessibility Office before pilot acceptance. | SR06 |
+| SOL01 | The service must accept a request containing club, event date, start/end times, capacity, equipment and access needs. Missing required fields or an end time before the start must prevent submission and identify the field to correct. | SR01 |
+| SOL02 | The service must show the requester a status of Submitted, In review, Confirmed, Declined or Cancelled. An authorized approver must be able to record a decision and reason; the requester must see the updated status and reason. | SR02, SR03 |
+| SOL03 | Confirmation must recheck and reserve room availability as one consistent operation. In a test with two simultaneous approvals for overlapping times in the same room, no more than one may be confirmed; the other must receive a conflict response. | SR04 |
+| SOL04 | Cancellation must release a confirmed allocation. A change to room or time must require fresh approval while preserving the existing confirmation until the change is accepted. Send the requester a notification for each decision or cancellation. | SR02, SR05 |
+| SOL05 | Enforce requester, approver and support roles on the service side. A requester must not read another requester’s records. Record the actor and time of each status change; export aggregate decision-time and conflict measures without requester names. | SR07, SR08 |
+| SOL06 | A keyboard user must be able to complete five journeys—submit, review status, request a change, cancel and approve—without a pointer, with visible focus and errors announced to assistive technology. Test with the Accessibility Office before pilot acceptance. | SR06 |
 
 </ExampleTable>
 

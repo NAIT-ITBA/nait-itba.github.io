@@ -2,8 +2,25 @@
 import BaseLayout from './BaseLayout.astro';
 interface Props { frontmatter: { title: string; description: string }; }
 const { title, description } = Astro.props.frontmatter;
+
+const assets = [
+  { href: '#live-examples', label: 'Process model and Kanban board' },
+  { href: '#project', label: 'Example project' },
+  { href: '#organization', label: 'Organization chart' },
+  { href: '#context', label: 'Context diagram' },
+  { href: '#stakeholders', label: 'Stakeholder analysis' },
+  { href: '#requirements', label: 'Requirements' },
+  { href: '#causes', label: 'Cause-and-effect diagram' },
+  { href: '#risks', label: 'Risk register' },
+];
 ---
 <BaseLayout title={`${title} | Discover ITBA at NAIT`} description={description}>
+  <aside class="value-bar" aria-label="Why these assets matter">
+    <p class="shell">
+      <strong>Why it matters:</strong>
+      Any project or organization without these assets&mdash;and the insights, information and questions they bring to the surface&mdash;is leaving value on the table.
+    </p>
+  </aside>
   <header class="article-header">
     <div class="shell">
       <p class="eyebrow">Business analysis you can explore</p>
@@ -11,5 +28,19 @@ const { title, description } = Astro.props.frontmatter;
       <p class="lead">{description}</p>
     </div>
   </header>
+  <section class="asset-band" aria-labelledby="asset-band-heading">
+    <div class="shell asset-band-inner">
+      <div>
+        <h2 id="asset-band-heading">What a business analyst puts on the table</h2>
+        <p>Each asset turns scattered knowledge into something a team can see, question and act on.</p>
+        <nav aria-label="Exemplar sections">
+          <ul class="asset-list">
+            {assets.map((a) => <li><a href={a.href}>{a.label}</a></li>)}
+          </ul>
+        </nav>
+      </div>
+      <a class="button button-yellow" href="#live-examples">Start exploring <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </section>
   <article class="shell exemplars"><slot /></article>
 </BaseLayout>

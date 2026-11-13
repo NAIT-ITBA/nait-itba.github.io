@@ -6,6 +6,9 @@
   --muted: #4d6075;
   --mist: #f1f5fa;
   --line: #d5dfeb;
+  --nait-yellow: #fad406;
+  --nait-yellow-hover: #fce36a;
+  --nait-purple: #4e1e7f;
   --body-font: 'Source Sans 3', sans-serif;
   --heading-font: 'industry', 'Source Sans 3', sans-serif;
   font-family: var(--body-font);
@@ -189,7 +192,6 @@ p + p { margin-top: 1rem; }
 
 /* Exemplar artifacts keep their own readable width inside scrollable regions. */
 .exemplars { padding-block: 45px 80px; }
-.exemplar-nav { display: flex; flex-wrap: wrap; gap: 12px 25px; padding-bottom: 30px; border-bottom: 1px solid var(--line); font-size: 1rem; }
 .exemplars h2 { margin-block: 65px 24px; padding-top: 12px; border-top: 3px solid var(--ook-blue); }
 .exemplars h3 { margin-block: 35px 18px; }
 .exemplars h4 { font-family: var(--heading-font); color: var(--midnight); font-size: 1.15rem; margin-block: 0 12px; }
@@ -226,4 +228,26 @@ p + p { margin-top: 1rem; }
   .diagram-figure { padding: 12px; }
   .process-embed { height: 460px; }
   .contingency { padding: 18px; }
+}
+
+/* NAIT accent palette: yellow notice bar and purple ApplyAlberta-style band. */
+.value-bar { background: var(--nait-yellow); color: var(--midnight); }
+.value-bar p { margin-block: 0; padding-block: 12px; font-size: 1.05rem; line-height: 1.5; }
+.value-bar strong { margin-right: 6px; }
+.asset-band { background: var(--nait-purple); color: #fff; padding-block: 50px; }
+.asset-band-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px 60px; }
+.asset-band h2 { color: #fff; font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin: 0 0 14px; }
+.asset-band p { margin: 0 0 22px; font-weight: 600; max-width: 60ch; }
+.asset-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, max-content)); gap: 8px 40px; font-size: 1rem; }
+.asset-list a { color: #fce36a; font-weight: 600; text-decoration: underline; text-underline-offset: .22em; }
+.asset-list a:hover { color: #fff; }
+.asset-band a:focus-visible { outline-color: var(--nait-yellow); }
+.button-yellow { background: var(--nait-yellow); color: var(--midnight); border-radius: 6px; flex-shrink: 0; min-width: 260px; }
+.button-yellow:hover { background: var(--nait-yellow-hover); color: var(--midnight); }
+.exemplars h2.first-exemplar { margin-top: 0; }
+@media (max-width: 800px) {
+  .asset-band { padding-block: 38px; }
+  .asset-band-inner { flex-direction: column; align-items: stretch; }
+  .asset-list { grid-template-columns: 1fr; }
+  .button-yellow { min-width: 0; }
 }
