@@ -1,9 +1,10 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import PageBanner, { type BannerName } from '../components/PageBanner.astro';
 interface Props {
-  frontmatter: { title: string; description: string; eyebrow?: string; theme?: 'identity' };
+  frontmatter: { title: string; description: string; eyebrow?: string; theme?: 'identity'; banner?: BannerName };
 }
-const { title, description, eyebrow = 'Business analysis in practice', theme } = Astro.props.frontmatter;
+const { title, description, eyebrow = 'Business analysis in practice', theme, banner } = Astro.props.frontmatter;
 ---
 <BaseLayout title={`${title} | Discover ITBA at NAIT`} description={description} article>
   <header class:list={['article-header', { 'identity-header': theme === 'identity' }]}>
@@ -14,5 +15,6 @@ const { title, description, eyebrow = 'Business analysis in practice', theme } =
       <p class="lead">{description}</p>
     </div>
   </header>
+  {banner && <PageBanner name={banner} />}
   <article class:list={['shell reading-width prose', { 'identity-page': theme === 'identity' }]}><slot /></article>
 </BaseLayout>

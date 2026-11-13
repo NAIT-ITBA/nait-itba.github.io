@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import collaborate from '../assets/banners/ba-collaborate.png';
+import conversation from '../assets/banners/ba-conversation.png';
+import conversation2 from '../assets/banners/ba-conversation-2.png';
+import design from '../assets/banners/ba-design.png';
+import smile from '../assets/banners/ba-smile.png';
+import smile2 from '../assets/banners/ba-smile-2.png';
+
+// Originals are 1200 x 300 PNGs (about 500 KB each). Astro converts them to WebP
+// at several widths during the build, so browsers download only the size they need.
+const strip = ' Banner text: ITBA Ook. Change Agent, Trusted Advisor, Information Engineer.';
+const banners = {
+  'ba-collaborate': { src: collaborate, alt: 'Three people review wireframe sketches on a whiteboard.' },
+  'ba-conversation': { src: conversation, alt: 'Three people lean in to talk through an idea together.' },
+  'ba-conversation-2': { src: conversation2, alt: 'A person in a cap holds a sticker-covered laptop while talking with teammates.' },
+  'ba-design': { src: design, alt: 'A person in a yellow shirt points to wireframe sketches on a whiteboard while two teammates watch.' },
+  'ba-smile': { src: smile, alt: 'A person wearing glasses smiles during a group working session.' },
+  'ba-smile-2': { src: smile2, alt: 'Three people laugh together in front of a whiteboard with sketches and sticky notes.' },
+};
+export type BannerName = keyof typeof banners;
+
+interface Props {
+  name: BannerName;
+  /** Set when the banner is not visible on first load, so it loads on scroll. */
+  lazy?: boolean;
+}
+const { name, lazy = false } = Astro.props;
+const banner = banners[name];
+---
+<figure class="page-banner">
+  <Image src={banner.src} alt={banner.alt + strip} widths={[480, 640, 820, 1200]} sizes="100vw" width={1200} format="webp" quality={80} loading={lazy ? 'lazy' : 'eager'} decoding="async" />
+</figure>
+
+<style>
+  /* Full width of the window. On wide screens the height is capped and the photo is
+     cropped from the top, so the ITBA Ook strip along the bottom always shows in full. */
+  .page-banner { margin: 0; background: var(--midnight); }
+  .page-banner img { display: block; width: 100%; height: min(25vw, 340px); object-fit: cover; object-position: center bottom; }
+</style>
