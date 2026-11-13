@@ -1,0 +1,13 @@
+flowchart LR
+  accTitle: Hypotheses about slow room-booking confirmation
+  accDescr: Missing request guidance and requests arriving through several channels may lead to missing details and repeated clarification. Missing approval cover may create an approval queue. Manual calendar updates may cause inconsistent availability and further clarification. Each pathway may contribute to slow confirmation; these are hypotheses to investigate.
+  checklist["No shared request checklist"] --> details["Missing booking details"]
+  channels["Requests split across channels"] --> details
+  details --> clarification["Repeated clarification"]
+  clarification --> effect["SLOW BOOKING\nCONFIRMATION"]
+  cover["No agreed approval cover"] --> queue["Requests wait for one coordinator"]
+  queue --> effect
+  manual["Calendar updated manually"] --> availability["Conflicting availability information"]
+  availability --> clarification
+  classDef effect fill:#002d74,color:#ffffff,stroke:#00a0df,stroke-width:3px;
+  class effect effect;

@@ -1,0 +1,10 @@
+flowchart TB
+  accTitle: Room-booking pilot project organization
+  accDescr: The Student Union governs the project. Sponsor Maya Chen is accountable to the union. Project lead and business analyst Jordan Patel coordinates Alex Rivera, Facilities, and club testers. Accessibility and the calendar supplier advise the team.
+  union["Maple Student Union\nGoverning organization"] --> sponsor["Maya Chen\nProject sponsor"]
+  sponsor --> lead["Jordan Patel\nProject lead and business analyst"]
+  lead --> dev["Alex Rivera\nTechnical lead"]
+  lead --> facilities["Facilities department\nBooking service owner"]
+  lead --> testers["Club organizers\nPilot testing group"]
+  access["Accessibility Office\nAdvisory department"] -. advises .-> lead
+  supplier["RoomCloud Ltd.\nCalendar supplier"] -. advises .-> dev

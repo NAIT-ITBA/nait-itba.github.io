@@ -1,0 +1,180 @@
+---
+layout: ../layouts/ExemplarsLayout.astro
+title: Exemplars
+description: Explore the diagrams, conversations and decisions that turn a business need into a shared understanding.
+---
+
+import MermaidDiagram from '../components/MermaidDiagram.astro';
+import ExampleTable from '../components/ExampleTable.astro';
+import organization from '../diagrams/project-organization.mmd?raw';
+import context from '../diagrams/booking-context.mmd?raw';
+import causes from '../diagrams/booking-causes.mmd?raw';
+
+<nav className="exemplar-nav" aria-label="Exemplar sections">
+  <a href="#live-examples">Process and Kanban</a>
+  <a href="#project">Example project</a>
+  <a href="#organization">Organization chart</a>
+  <a href="#context">Context diagram</a>
+  <a href="#stakeholders">Stakeholders</a>
+  <a href="#requirements">Requirements</a>
+  <a href="#causes">Cause and effect</a>
+  <a href="#risks">Risks</a>
+</nav>
+
+<h2 id="live-examples">Explore a process and a Kanban board</h2>
+
+These shared examples let you explore two ways of making work visible. They are separate from the fictional room-booking case below.
+
+### Process model
+
+<iframe className="process-embed" src="https://hub.camunda.io/embed/d90612e8-d03e-48ec-8388-d50486382f8e" title="Shared ITBA process model in Camunda" width="700" height="500" style={{border: '1px solid #ccc'}} loading="lazy" allowFullScreen></iframe>
+
+[Open the process model in Camunda](https://hub.camunda.io/embed/d90612e8-d03e-48ec-8388-d50486382f8e)
+
+### Kanban board
+
+<iframe className="kanban-embed" src="https://trello.com/b/h3Ly7ty2.html" title="ITBA Example Trello board preview" width="500" height="240" loading="lazy"></iframe>
+
+[Open the full ITBA Example Kanban board in Trello](https://trello.com/b/h3Ly7ty2/itba-example)
+
+<p className="embed-note">The embedded Trello view is a compact preview. Use the link to explore the board’s columns and cards.</p>
+
+<h2 id="project">One project, several perspectives</h2>
+
+<aside className="article-note"><strong>Fictional teaching example:</strong> Maple Campus is piloting a better room-booking service for student clubs. All people, organizations, targets, requirements and risk ratings below are invented for learning. They are not claims about NAIT systems, students or project outcomes.</aside>
+
+Club organizers describe slow confirmations and uncertainty about room availability. The project team will investigate the current process, agree on the need, and test a small booking service with a limited group of clubs.
+
+The proposed product covers room requests, staff decisions, booking status and requester notifications. It connects to existing sign-in, calendar and email services. Payments, public event ticketing and a replacement campus calendar are outside this pilot.
+
+<h2 id="organization">Project organization chart</h2>
+
+Solid lines show project accountability. Dotted lines show advice and consultation, not employment reporting relationships.
+
+<MermaidDiagram source={organization} caption="Who sponsors, coordinates, delivers and advises the fictional room-booking pilot." />
+
+<h2 id="context">Context diagram</h2>
+
+The dark box is the proposed booking service. The surrounding people and systems are outside its boundary; labelled arrows show what crosses that boundary. This view deliberately leaves out internal screens, databases and processing steps.
+
+<MermaidDiagram source={context} caption="The booking service in context: users, external systems and information exchanged." />
+
+<h2 id="stakeholders">Stakeholder list</h2>
+
+“Impact” describes how the change affects the stakeholder; “influence” describes their ability to shape a decision. A person can be highly affected without having high formal influence.
+
+<ExampleTable label="Stakeholder list; scroll horizontally on smaller screens">
+
+| Label | Needs | Impact of the change | Role | Influence | Communication notes |
+| --- | --- | --- | --- | --- | --- |
+| S01 — Maya Chen (individual) | Evidence that the pilot improves booking without unacceptable disruption | High: accountable for the pilot decision | Sponsor | High: approves scope and go/no-go | Weekly decision brief; escalate significant service risks immediately |
+| S02 — Jordan Patel (individual) | Access to users, decisions and process evidence | High: coordinates discovery and delivery | Project lead and business analyst | High: facilitates priorities and recommends options | Maintain decisions and open questions; hold a weekly working session |
+| S03 — Alex Rivera (individual) | Clear acceptance checks and reliable interface documentation | High: responsible for technical delivery | Technical lead | High: assesses feasibility and technical risks | Short delivery check-ins; review changed requirements before implementation |
+| S04 — Club organizers (group) | Clear room choices, request status and timely decisions | High: their booking routine changes | Primary users and pilot testers | Medium: validate usability and priority needs | Brief demonstrations and task-based testing; offer accessible feedback options |
+| S05 — Event attendees (group) | Reliable venue details and accessible meeting arrangements | High: errors or venue changes can prevent participation | Affected beneficiaries | Low formal authority; important lived experience | Ask organizers to relay changes promptly; invite feedback from affected attendees |
+| S06 — Facilities (department) | Complete requests, a manageable approval queue and dependable availability | High: owns the operational workflow | Booking service owner and approver | High: accepts the operating process | Weekly process review; agree exception handling and a backup approver |
+| S07 — IT Services (department) | Appropriate access, support ownership and recoverable service | High: supports identity and operations | Security and support owner | High: approves operational readiness | Review access and failure scenarios before the pilot; document escalation contacts |
+| S08 — Accessibility Office (department) | Booking journeys that work with different access needs | High: barriers can exclude participants | Accessibility reviewer | Medium: advises acceptance and escalation | Include early design review and representative task testing, not only a final review |
+| S09 — Maple Student Union (organization) | Fair access to rooms and an understandable use of pilot funding | Medium: owns governance and funding decisions | Governing body | High: authorizes funding and policy | Sponsor reports at agreed checkpoints; seek decisions on allocation rules |
+| S10 — RoomCloud Ltd. (organization) | Clear interface responsibilities and support expectations | Medium: integration affects its support workload | External calendar supplier | Medium: controls calendar interface constraints | Confirm integration behaviour, escalation route and maintenance notice arrangements |
+
+</ExampleTable>
+
+<h2 id="requirements">Requirements at different levels</h2>
+
+Use the official visual to compare the categories: [IIBA’s Requirements Types infographic (PDF)](https://www.iiba.org/contentassets/38e412c7b77d456297d953de5bf5ca61/requirement-types-infograph.pdf). **Attribution:** © 2021 International Institute of Business Analysis. The visual remains hosted by IIBA.
+
+The product requirements below are the **solution requirements** for this example. For the authoritative classification, see [IIBA’s Business Analysis Standard](https://www.iiba.org/career-resources/a-business-analysis-professionals-foundation-for-success/the-foundation-for-effective-business-analysis/).
+
+### Business requirements
+
+These are proposed outcomes for the fictional four-week pilot, not measured results.
+
+<ExampleTable label="Business requirements and proposed success checks">
+
+| ID | Business requirement | Proposed success check |
+| --- | --- | --- |
+| BR01 | Reduce the time club organizers wait for a decision on a complete request | Median complete-request-to-decision time is no more than one working day during the pilot; compare with a baseline collected before launch |
+| BR02 | Avoid disruption caused by conflicting room confirmations | No two active confirmations allocate the same room to overlapping times during the pilot |
+| BR03 | Enable equitable participation in the booking process | All agreed accessibility and assisted-booking scenarios pass evaluation with representative participants before expansion |
+
+</ExampleTable>
+
+### Stakeholder requirements
+
+The needs below connect stakeholders to those outcomes. Product-facing needs include user stories; operational needs are stated directly.
+
+<ol className="requirement-list">
+  <li><h4>SR01 — Provide enough information to request a suitable room</h4><p><strong>Stakeholder:</strong> S04 club organizers. <strong>Supports:</strong> BR01, BR03.</p><p>Organizers need to describe timing, capacity, equipment and access needs without avoidable follow-up.</p><p><strong>User story:</strong> As a club organizer, I want to submit my room needs together so that Facilities can assess my request without chasing missing details.</p></li>
+  <li><h4>SR02 — Understand what is happening to a request</h4><p><strong>Stakeholder:</strong> S04 club organizers. <strong>Supports:</strong> BR01.</p><p>Organizers need a clear status and an explanation of the decision.</p><p><strong>User story:</strong> As a club organizer, I want to see my request’s status and decision so that I can plan the event and know whether I need to act.</p></li>
+  <li><h4>SR03 — Make and explain booking decisions</h4><p><strong>Stakeholder:</strong> S06 Facilities. <strong>Supports:</strong> BR01, BR02.</p><p>Approvers need complete requests and a way to record the reason for approval or refusal.</p><p><strong>User story:</strong> As a Facilities approver, I want to review a request and record my decision with a reason so that organizers receive an understandable response.</p></li>
+  <li><h4>SR04 — Avoid confirming conflicting bookings</h4><p><strong>Stakeholder:</strong> S06 Facilities. <strong>Supports:</strong> BR02.</p><p>Approvers need dependable availability at the moment a booking is confirmed.</p><p><strong>User story:</strong> As a Facilities approver, I want conflicts checked when I confirm a room so that another organizer is not given the same room at the same time.</p></li>
+  <li><h4>SR05 — Change or cancel a request</h4><p><strong>Stakeholder:</strong> S04 club organizers. <strong>Supports:</strong> BR01, BR02.</p><p>Organizers need to release unwanted rooms and request changes without losing track of the current decision.</p><p><strong>User story:</strong> As a club organizer, I want to cancel or request a change to my booking so that room allocations reflect my event’s current needs.</p></li>
+  <li><h4>SR06 — Complete booking tasks using a keyboard</h4><p><strong>Stakeholders:</strong> S04 club organizers and S08 Accessibility Office. <strong>Supports:</strong> BR03.</p><p>People who do not use a pointer need an operable request and status journey.</p><p><strong>User story:</strong> As an organizer using a keyboard, I want to reach and operate every booking control so that I can manage my request independently.</p></li>
+  <li><h4>SR07 — Keep booking information within authorized roles</h4><p><strong>Stakeholder:</strong> S07 IT Services. <strong>Supports:</strong> BR03.</p><p>Support staff need access controls that protect requester information while allowing authorized operational work.</p><p><strong>User story:</strong> As an IT support analyst, I want permissions enforced for every booking action so that users can access only the records and functions assigned to their role.</p></li>
+  <li><h4>SR08 — Evaluate the pilot using evidence</h4><p><strong>Stakeholders:</strong> S01 sponsor and S02 project lead. <strong>Supports:</strong> BR01–BR03.</p><p>The sponsor needs decision-time and conflict evidence, alongside participant feedback, before approving expansion.</p><p><strong>User story:</strong> As the sponsor, I want an aggregate pilot report so that I can assess the agreed outcomes without inspecting unnecessary personal booking details.</p></li>
+  <li><h4>SR09 — Agree who covers the approval queue</h4><p><strong>Stakeholder:</strong> S06 Facilities. <strong>Supports:</strong> BR01.</p><p>Facilities needs a named approver and a deputy for each pilot working day, with an agreed escalation route. This is an operating arrangement, not a software feature.</p></li>
+  <li><h4>SR10 — Prepare people for the pilot</h4><p><strong>Stakeholders:</strong> S04 club organizers, S06 Facilities and S08 Accessibility Office. <strong>Supports:</strong> BR01, BR03.</p><p>Participants need an accessible introduction, practice tasks and an assisted booking route before using the new process.</p></li>
+  <li><h4>SR11 — Agree calendar support responsibilities</h4><p><strong>Stakeholders:</strong> S07 IT Services and S10 RoomCloud Ltd. <strong>Supports:</strong> BR01, BR02.</p><p>The support teams need an agreed interface contract, incident contact and maintenance-notice arrangement before the pilot relies on the calendar integration.</p></li>
+  <li><h4>SR12 — Keep attendees informed about changes</h4><p><strong>Stakeholders:</strong> S04 club organizers and S05 event attendees. <strong>Supports:</strong> BR02, BR03.</p><p>Organizers need an agreed responsibility for telling attendees about venue or time changes and checking access arrangements. Attendee mailing lists remain outside the booking product.</p></li>
+</ol>
+
+### Product requirements
+
+These statements describe testable behaviour or qualities of the proposed booking service.
+
+<ExampleTable label="Product requirements with acceptance checks">
+
+| ID | Product requirement and acceptance check | Stakeholder requirements |
+| --- | --- | --- |
+| PR01 | The service must accept a request containing club, event date, start/end times, capacity, equipment and access needs. Missing required fields or an end time before the start must prevent submission and identify the field to correct. | SR01 |
+| PR02 | The service must show the requester a status of Submitted, In review, Confirmed, Declined or Cancelled. An authorized approver must be able to record a decision and reason; the requester must see the updated status and reason. | SR02, SR03 |
+| PR03 | Confirmation must recheck and reserve room availability as one consistent operation. In a test with two simultaneous approvals for overlapping times in the same room, no more than one may be confirmed; the other must receive a conflict response. | SR04 |
+| PR04 | Cancellation must release a confirmed allocation. A change to room or time must require fresh approval while preserving the existing confirmation until the change is accepted. Send the requester a notification for each decision or cancellation. | SR02, SR05 |
+| PR05 | Enforce requester, approver and support roles on the service side. A requester must not read another requester’s records. Record the actor and time of each status change; export aggregate decision-time and conflict measures without requester names. | SR07, SR08 |
+| PR06 | A keyboard user must be able to complete five journeys—submit, review status, request a change, cancel and approve—without a pointer, with visible focus and errors announced to assistive technology. Test with the Accessibility Office before pilot acceptance. | SR06 |
+
+</ExampleTable>
+
+### Transition into the pilot
+
+- **TR01:** Reconcile existing pilot bookings against the calendar and obtain Facilities sign-off before accepting new requests.
+- **TR02:** Have pilot organizers and approvers demonstrate the booking and assisted-support routes before launch.
+
+These are temporary readiness needs; they do not become permanent product features.
+
+<h2 id="causes">Cause-and-effect mapping</h2>
+
+Start with the observed problem, then identify possible contributing causes. Every arrow in this example is a **hypothesis to investigate**, not proof of causation.
+
+<MermaidDiagram source={causes} caption="Possible pathways to slow booking confirmation. Validate each link before selecting a remedy." />
+
+To test this map, sample request and decision timestamps, compare clarification messages with the information originally submitted, and interview approvers about coverage and calendar updates. Investigate alternative explanations before treating any branch as a root cause.
+
+<h2 id="risks">Short risk analysis</h2>
+
+These illustrative ratings apply to the four-week pilot. Likelihood is **1 = unlikely, 2 = possible, 3 = likely**. Impact is **1 = minor rework, 2 = significant delay or disruption, 3 = serious service, access or confidentiality harm**. Priority is likelihood × impact; residual ratings are estimates after mitigation and still need review.
+
+<ExampleTable label="Risk analysis; likelihood, impact, mitigation and residual risk">
+
+| Name | Likelihood | Impact | Initial priority | Mitigation and owner | Residual risk |
+| --- | --- | --- | --- | --- | --- |
+| R01 — Conflicting room confirmations | 3 — Likely | 3 — Serious | 9 — Highest | Technical lead: test concurrent approvals and calendar failure states; implement atomic availability checks. Facilities: reconcile existing bookings before launch. | 1 × 3 = 3; a missed conflict could still disrupt an event. Facilities monitors daily. |
+| R02 — Unauthorized access to booking details | 2 — Possible | 3 — Serious | 6 | IT Services: enforce record-level authorization, minimize collected data, test cross-user access and review logs. | 1 × 3 = 3; access-control defects remain possible and require monitoring. |
+| R03 — Organizers continue using scattered channels | 3 — Likely | 2 — Significant | 6 | Project lead and club representatives: test the workflow early, explain the agreed route and retain an assisted option. | 2 × 2 = 4; some requests may still need redirection and support. |
+| R04 — Calendar service unavailable | 2 — Possible | 2 — Significant | 4 | IT Services and supplier: agree escalation, make failed checks visible and keep requests pending until availability can be verified. | 1 × 2 = 2; an outage can still delay decisions. |
+| R05 — A booking journey excludes some users | 2 — Possible | 3 — Serious | 6 | Accessibility Office and technical lead: test representative journeys early, correct barriers and provide an assisted route. | 1 × 3 = 3; untested access needs can still emerge during the pilot. |
+
+</ExampleTable>
+
+### Contingency plan for R01 — conflicting confirmations
+
+<div className="contingency">
+
+1. **Trigger:** Facilities identifies two active confirmations for overlapping times in the same room.
+2. **Immediate response:** Facilities pauses new automatic confirmations for the affected room. IT Services preserves logs and places affected requests under manual review.
+3. **Keep the service operating:** A single Facilities coordinator maintains a controlled booking register, reconciles the conflict against the agreed allocation rules and offers an appropriate alternative room or time. Club organizers notify attendees and confirm access arrangements.
+4. **Escalate:** Notify the sponsor and technical lead immediately. If no workable alternative is agreed within two working hours, the sponsor resolves the priority decision with Facilities and the affected organizers.
+5. **Recover:** The technical lead fixes and retests the conflict path, including simultaneous approvals. Facilities reconciles the register with the calendar and authorizes reopening only when there are no unresolved conflicting confirmations.
+
+</div>

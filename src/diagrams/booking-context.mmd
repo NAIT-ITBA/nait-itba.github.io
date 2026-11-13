@@ -1,0 +1,14 @@
+flowchart LR
+  accTitle: Context of the proposed room-booking service
+  accDescr: Club organizers submit requests and receive outcomes. Facilities reviews requests and supplies decisions. The booking service exchanges availability with the room calendar and identity verification with campus sign-in. It sends notification instructions to the email service. External systems are outside the booking service boundary.
+  organizers["Club organizers"] -->|"Requests, changes, cancellations"| service["ROOM-BOOKING SERVICE\nProposed system boundary"]
+  service -->|"Status and decision details"| organizers
+  facilities["Facilities staff"] -->|"Decisions and room rules"| service
+  service -->|"Requests awaiting review"| facilities
+  service -->|"Availability queries and confirmed bookings"| calendar["RoomCloud\nRoom calendar"]
+  calendar -->|"Availability and booking results"| service
+  service -->|"Identity check"| identity["Campus sign-in\nIdentity provider"]
+  identity -->|"Identity and role"| service
+  service -->|"Requester notification instructions"| email["Email delivery service"]
+  classDef boundary fill:#002d74,color:#ffffff,stroke:#00a0df,stroke-width:3px;
+  class service boundary;

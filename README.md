@@ -25,8 +25,12 @@ Astro generates static HTML in `dist/`. No server runtime, database, account sys
 
 - `src/pages/index.mdx` — discovery landing page.
 - `src/pages/business-analysis.mdx` — illustrative walkthrough and an example of long-form MDX authoring.
+- `src/pages/our-identity.mdx` — prospective-student adaptation of `brightspace/pages/ITBA2006/ITBA2006-identity-statements.html` in the course-development repository; professional source links and connections to the exemplars.
+- `src/pages/your-success.mdx` — the program's study-strategy and portfolio message, grounded in the owner's direction and `brightspace/pages/ITBA1001/ITBA1001-notion-setup.html`. The maintained template link is `https://qr.codes/np6WgU` (resolves to the public Student IT Business Analyst Dashboard). Describe the educational intent; link to the template and Notion for current capabilities, eligibility, prices and setup steps. Do not promise outcomes or mirror a template feature inventory. The Notion connector's retrieved template verification was expired at review, so it is not treated as a currently verified feature specification.
 - `src/pages/faq.mdx` — question-led directory of authoritative references. The maintained `FAQ - ITBA.docx` in the `006 Open House Materials` library guides the questions and grouping; the original DOCX stays in its library. Link directly to NAIT and IIBA under the relevant question instead of copying their answers or figures into the site.
 - `src/components/FaqItem.astro` — native, keyboard-accessible question disclosure; no JavaScript required.
+- `src/pages/exemplars.mdx` — fictional room-booking case with stakeholders, requirements, risk analysis, and separately supplied Camunda/Trello examples.
+- `src/diagrams/*.mmd` — editable Mermaid organization, context, and cause-and-effect diagrams. `MermaidDiagram.astro` renders them in the browser and exposes the source for readers; diagram code is bundled locally, not loaded from a CDN.
 - `src/layouts/PageLayout.astro` — reusable layout for additional MDX pages. Use `layout`, `title`, `description`, and optional `eyebrow` in frontmatter, following the walkthrough.
 - `src/layouts/BaseLayout.astro` — document metadata, Adobe Fonts embed, header, and footer.
 - `src/styles/global.css` — shared design tokens, typography, layout, and responsive styles.
@@ -66,6 +70,8 @@ Only files in the generated `dist/` artifact are deployed. Other organization re
 
 Keep internal planning, student records, consent records, credentials, and unapproved student material outside this public repository. Review program wording and media before adding them.
 
-The site contains no forms, analytics, tracking scripts, embeds, or client-side JavaScript. Assets and body fonts are served from the site. **Industry loads from Adobe Fonts**, including Adobe's stylesheet/font network requests; this is an explicit exception to a fully self-hosted-font design. GitHub Pages also logs visitor IP addresses for security. Do not describe the hosting arrangement as collecting no data.
+The site itself has no forms or analytics. Assets, body fonts, and the Mermaid renderer are served from the site. The Exemplars page uses client-side Mermaid rendering and explicitly requested third-party Camunda and Trello iframes; those providers control their own network requests, cookies and access requirements. The Trello iframe uses its compact `.html` preview because its full board page blocks framing; a direct board link is always present. **Industry loads from Adobe Fonts**, including Adobe's stylesheet/font network requests. GitHub Pages also logs visitor IP addresses for security. Do not describe the hosting arrangement as collecting no data.
+
+The exemplar case, people, organizations, requirements, success targets, causal hypotheses and risk ratings are fictional teaching material. The two supplied embeds are separate examples, not evidence for the fictional case. IIBA's requirements-type visual is linked at its official PDF URL with attribution; it is not copied or rehosted. Keep future externally maintained facts linked to their authoritative source.
 
 The website supports public program discovery; official NAIT pages remain authoritative for program and admissions information.

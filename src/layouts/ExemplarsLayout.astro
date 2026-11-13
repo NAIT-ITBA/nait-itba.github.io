@@ -1,0 +1,15 @@
+---
+import BaseLayout from './BaseLayout.astro';
+interface Props { frontmatter: { title: string; description: string }; }
+const { title, description } = Astro.props.frontmatter;
+---
+<BaseLayout title={`${title} | Discover ITBA at NAIT`} description={description}>
+  <header class="article-header">
+    <div class="shell">
+      <p class="eyebrow">Business analysis you can explore</p>
+      <h1>{title}</h1>
+      <p class="lead">{description}</p>
+    </div>
+  </header>
+  <article class="shell exemplars"><slot /></article>
+</BaseLayout>

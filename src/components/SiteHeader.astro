@@ -16,9 +16,11 @@ const { pathname } = Astro.url;
   <nav class="primary-nav" aria-label="Main navigation">
     <div class="shell nav-inner">
       <a href="/" aria-current={pathname === '/' ? 'page' : undefined}>Discover ITBA</a>
-      <a href="/business-analysis/" aria-current={pathname === '/business-analysis/' ? 'page' : undefined}>Business analysis in practice</a>
+      <a href="/our-identity/" aria-current={pathname === '/our-identity/' ? 'page' : undefined}>Our identity</a>
+      <a href="/your-success/" aria-current={pathname === '/your-success/' ? 'page' : undefined}>Your success</a>
+      <a href="/business-analysis/" aria-current={pathname === '/business-analysis/' ? 'page' : undefined}>BA in practice</a>
+      <a href="/exemplars/" aria-current={pathname === '/exemplars/' ? 'page' : undefined}>Exemplars</a>
       <a href="/faq/" aria-current={pathname === '/faq/' ? 'page' : undefined}>FAQ</a>
-      <a href="/#your-next-step">Your next step <span aria-hidden="true">↗</span></a>
     </div>
   </nav>
 </header>
