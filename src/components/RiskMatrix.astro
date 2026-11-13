@@ -1,0 +1,91 @@
+---
+interface Risk {
+  id: string;
+  name: string;
+  likelihood: number;
+  impact: number;
+  residualLikelihood: number;
+  residualImpact: number;
+}
+interface Props { risks: Risk[]; caption: string; }
+const { risks, caption } = Astro.props;
+
+const likelihoodLabels: Record<number, string> = { 3: 'Likely', 2: 'Possible', 1: 'Unlikely' };
+const impactLabels: Record<number, string> = { 1: 'Minor', 2: 'Significant', 3: 'Serious' };
+const band = (score: number) => (score >= 6 ? 'High' : score >= 3 ? 'Medium' : 'Low');
+
+const views = [
+  { key: 'initial', title: 'Before mitigation', l: (r: Risk) => r.likelihood, i: (r: Risk) => r.impact },
+  { key: 'residual', title: 'After mitigation (residual)', l: (r: Risk) => r.residualLikelihood, i: (r: Risk) => r.residualImpact },
+];
+---
+<figure class="risk-matrix-figure">
+  <div class="risk-matrices">
+    {views.map((view) => (
+      <div class="table-scroll risk-matrix-scroll" tabindex="0" role="region" aria-label={`Risk matrix: ${view.title}`}>
+        <table class="risk-matrix">
+          <caption>{view.title}</caption>
+          <thead>
+            <tr>
+              <td class="axis-corner"><span>Likelihood ↓</span><span>Impact →</span></td>
+              {[1, 2, 3].map((i) => <th scope="col">{i} — {impactLabels[i]}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {[3, 2, 1].map((l) => (
+              <tr>
+                <th scope="row">{l} — {likelihoodLabels[l]}</th>
+                {[1, 2, 3].map((i) => {
+                  const score = l * i;
+                  const here = risks.filter((r) => view.l(r) === l && view.i(r) === i);
+                  return (
+                    <td class={`cell band-${band(score).toLowerCase()}`}>
+                      <span class="cell-score">{score} · {band(score)}</span>
+                      {here.length > 0 && (
+                        <ul>
+                          {here.map((r) => (
+                            <li title={`${r.id} — ${r.name}: ${l} × ${i} = ${score} (${band(score)})`}>
+                              <abbr title={r.name}>{r.id}</abbr>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    ))}
+  </div>
+  <figcaption>{caption}</figcaption>
+</figure>
+
+<style>
+  .risk-matrix-figure { margin: 30px 0; }
+  .risk-matrices { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 24px; align-items: start; }
+  .risk-matrix-scroll { margin-block: 0; border-color: #d9cce8; }
+  .risk-matrix-scroll table.risk-matrix { min-width: 340px; table-layout: fixed; }
+  /* Purple title band with a NAIT-yellow rule, echoing the asset band and value bar. */
+  .risk-matrix caption { caption-side: top; text-align: left; font-weight: 700; color: #fff; background: var(--nait-purple); border-bottom: 5px solid var(--nait-yellow); padding: 12px 14px; }
+  .risk-matrix th, .risk-matrix td { padding: 10px; font-size: .9rem; vertical-align: top; border-color: #d9cce8; }
+  .risk-matrix thead th, .risk-matrix tbody th { background: #f4effa; color: var(--nait-purple); }
+  .risk-matrix thead th { text-align: center; }
+  .risk-matrix tbody th { width: 26%; }
+  .risk-matrix .axis-corner { background: #f4effa; color: #5d4a73; font-size: .8rem; line-height: 1.3; }
+  .risk-matrix .axis-corner span { display: block; }
+  .risk-matrix td.cell { height: 92px; color: var(--ink); font-weight: 400; }
+  /* One-hue purple sequential ramp; the score band is also written in each cell, so colour is never the only cue. */
+  .risk-matrix td.band-low { background: #fff; }
+  .risk-matrix td.band-medium { background: #ddcdef; }
+  .risk-matrix td.band-high { background: var(--nait-purple); color: #fff; }
+  .cell-score { display: block; font-size: .8rem; font-weight: 600; margin-bottom: 6px; }
+  .risk-matrix ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+  .risk-matrix li { background: #fff; color: var(--nait-purple); border: 1px solid #c9b6e0; border-radius: 4px; padding: 1px 7px; font-weight: 700; font-size: .85rem; cursor: help; }
+  /* High-band risks get a yellow tag so the ones needing action stand out. */
+  .risk-matrix td.band-high li { background: var(--nait-yellow); color: var(--midnight); border-color: var(--nait-yellow); }
+  .risk-matrix abbr { text-decoration: none; }
+  .risk-matrix-figure figcaption { color: var(--muted); font-size: 1rem; margin-top: 15px; }
+</style>
