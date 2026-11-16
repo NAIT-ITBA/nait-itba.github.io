@@ -10,27 +10,51 @@
     <div class="story-decision">
       <h3>You are Maya. What do you decide?</h3>
       <ul class="decision-options">
-        <li><strong>A</strong> Approve the new booking system now.</li>
-        <li><strong>B</strong> Tell Facilities to answer every request within one working day.</li>
-        <li><strong>C</strong> Find out why confirmations are slow, then choose a fix.</li>
+        <li><button type="button" data-choice="A" aria-controls="instinct-outcomes" aria-pressed="false"><strong>A</strong> Approve the new booking system now.</button></li>
+        <li><button type="button" data-choice="B" aria-controls="instinct-outcomes" aria-pressed="false"><strong>B</strong> Tell Facilities to answer every request within one working day.</button></li>
+        <li><button type="button" data-choice="C" aria-controls="instinct-outcomes" aria-pressed="false"><strong>C</strong> Ask the booking coordinator what went wrong, and fix whatever they name.</button></li>
       </ul>
-      <p>Choose before you read on. What would you need to know to be confident?</p>
+      <p>Choose an option to see what happens. What would you need to know to be confident?</p>
     </div>
 
-    <details class="faq-item story-reveal">
+    <details class="faq-item story-reveal" id="instinct-outcomes">
       <summary>What happened when Maya decided on instinct</summary>
       <div class="story-answer">
-        <p>Maya approved the system. Six months later the budget is spent, but requests still arrive incomplete through email and chat, and one coordinator still approves every booking. Confirmations are a little faster; the complaints continue. Option B stalls in the same place, because replying faster does not fill in missing details or cover an absent approver.</p>
-        <p>Neither choice was careless. Both drew on real experience, but nobody had checked what was causing the delay.</p>
+        <ul class="story-outcomes">
+          <li data-outcome="A" tabindex="-1"><span class="your-choice">Your choice</span><strong>A:</strong> Six months later the budget is spent, but requests still arrive incomplete through email and chat, and one coordinator still approves every booking. Confirmations are a little faster; the complaints continue.</li>
+          <li data-outcome="B" tabindex="-1"><span class="your-choice">Your choice</span><strong>B:</strong> Facilities agrees, but replying faster does not fill in missing details or cover an absent approver. Within weeks the target slips.</li>
+          <li data-outcome="C" tabindex="-1"><span class="your-choice">Your choice</span><strong>C:</strong> Maya squeezes in a 15-minute chat with the coordinator between meetings. Under pressure, the coordinator names the latest frustration: organizers forget to give a head count. A reminder is added to the request email. Nobody else is asked, so the single approver and the hand-updated calendar stay hidden, and the real cause is never found.</li>
+        </ul>
+        <p>None of these choices was careless. Each drew on real experience, but Maya had no one whose job was to find out what was actually going on.</p>
       </div>
     </details>
 
     <details class="faq-item story-reveal">
-      <summary>The same decision, with a business analyst</summary>
+      <summary>The same decision, with you as the business analyst</summary>
       <div class="story-answer">
-        <p>A business analyst, Jordan Patel, asks first: where do requests wait, what is missing when they arrive, and who approves when the coordinator is away? A <a href="#facilitation">workshop</a> and a sample of recent requests point to <a href="#causes">three likely causes</a>: incomplete requests from scattered channels, a single approver and a hand-updated calendar.</p>
-        <p>Maya still decides, but now she approves a four-week pilot with <a href="#requirements">clear targets</a> and a plan for <a href="#risks">what could go wrong</a>. If it works, she has evidence to expand. If not, being wrong costs four weeks, not a system contract. The exemplars below show the work behind that decision.</p>
+        <p>As a business analysis professional, you first ask: where do requests wait, what is missing when they arrive, and who approves when the coordinator is away? You run a <a href="#facilitation">workshop</a> with organizers, Facilities and the Accessibility Office, and you sample recent requests. Together they point to <a href="#causes">three likely causes</a>: incomplete requests from scattered channels, a single approver and a hand-updated calendar.</p>
+        <p>Maya still decides, but now she approves a four-week pilot with <a href="#requirements">clear targets</a> you helped define and a plan for <a href="#risks">what could go wrong</a>. If it works, she has evidence to expand. If not, being wrong costs four weeks, not a system contract. The exemplars below show your work behind that decision.</p>
       </div>
     </details>
   </div>
 </section>
+<script>
+  // A, B and C open the instinct outcomes and highlight the reader's choice.
+  const outcomes = document.getElementById('instinct-outcomes') as HTMLDetailsElement | null;
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.decision-options button');
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      if (!outcomes) return;
+      const choice = button.dataset.choice;
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+      outcomes.querySelectorAll<HTMLElement>('[data-outcome]').forEach((item) => {
+        item.classList.toggle('is-chosen', item.dataset.outcome === choice);
+      });
+      outcomes.open = true;
+      const chosen = outcomes.querySelector<HTMLElement>(`[data-outcome="${choice}"]`);
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      chosen?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+      chosen?.focus({ preventScroll: true });
+    });
+  });
+</script>

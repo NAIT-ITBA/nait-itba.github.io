@@ -45,7 +45,7 @@ These shared examples let you explore two ways of making work visible. The proce
 
 <h2 id="project">One project, several perspectives</h2>
 
-<aside className="article-note"><strong>A teaching case:</strong> Maple Campus is a made-up organization piloting a better room-booking service for student clubs. Its people, targets, requirements and risk ratings were created to show how a business analyst’s assets fit together. The same assets support projects in any industry.</aside>
+<aside className="article-note"><strong>A teaching case:</strong> Maple Campus is a made-up organization piloting a better room-booking service for student clubs. Its people, targets, requirements and risk ratings were created to show how a business analyst’s assets fit together. The same assets support projects in any industry. Throughout this case, <strong>you are the business analyst</strong>.</aside>
 
 Club organizers describe slow confirmations and uncertainty about room availability. The project team will investigate the current process, agree on the need, and test a small booking service with a limited group of clubs.
 
@@ -55,7 +55,7 @@ The proposed product covers room requests, staff decisions, booking status and r
 
 <aside className="callout-strong" aria-labelledby="facilitation-callout-title">
   <h4 id="facilitation-callout-title">Much of a business analyst’s work happens in conversation</h4>
-  <p>A facilitation plan sets out why people are meeting, who needs to be heard, how each activity will run and what the group will leave with. Jordan Patel prepared this plan for the pilot’s first discovery workshop.</p>
+  <p>A facilitation plan sets out why people are meeting, who needs to be heard, how each activity will run and what the group will leave with. You prepared this plan for the pilot’s first discovery workshop.</p>
 </aside>
 
 <div className="plan-grid">
@@ -74,7 +74,7 @@ The proposed product covers room requests, staff decisions, booking status and r
   <section>
     <h4>People and roles</h4>
     <ul>
-      <li><strong>Facilitator:</strong> Jordan Patel guides the process and stays neutral on the answers</li>
+      <li><strong>Facilitator:</strong> you guide the process and stay neutral on the answers</li>
       <li><strong>Sponsor:</strong> Maya Chen opens the session, then speaks last so others are not led</li>
       <li><strong>Contributors:</strong> four club organizers, two Facilities coordinators and an Accessibility Office adviser</li>
       <li><strong>Scribe and timekeeper:</strong> Alex Rivera, who also listens for technical constraints</li>
@@ -121,7 +121,7 @@ The proposed product covers room requests, staff decisions, booking status and r
 
 </ExampleTable>
 
-**After the session:** Jordan sends a summary within two working days and asks participants to confirm or correct it. The results feed the stakeholder list, the requirements and the cause-and-effect map below, and the sponsor reviews the parking lot.
+**After the session:** you send a summary within two working days and ask participants to confirm or correct it. The results feed the stakeholder list, the requirements and the cause-and-effect map below, and the sponsor reviews the parking lot.
 
 <h2 id="organization">Project organization chart</h2>
 
@@ -144,7 +144,7 @@ The dark box is the proposed booking service. The surrounding people and systems
 | Label | Needs | Impact of the change | Role | Influence | Communication notes |
 | --- | --- | --- | --- | --- | --- |
 | S01 — Maya Chen (individual) | Evidence that the pilot improves booking without unacceptable disruption | High: accountable for the pilot decision | Sponsor | High: approves scope and go/no-go | Weekly decision brief; escalate significant service risks immediately |
-| S02 — Jordan Patel (individual) | Access to users, decisions and process evidence | High: coordinates discovery and delivery | Project lead and business analyst | High: facilitates priorities and recommends options | Maintain decisions and open questions; hold a weekly working session |
+| S02 — You (individual) | Access to users, decisions and process evidence | High: coordinates discovery and delivery | Project lead and business analyst | High: facilitates priorities and recommends options | Maintain decisions and open questions; hold a weekly working session |
 | S03 — Alex Rivera (individual) | Clear acceptance checks and reliable interface documentation | High: responsible for technical delivery | Technical lead | High: assesses feasibility and technical risks | Short delivery check-ins; review changed requirements before implementation |
 | S04 — Club organizers (group) | Clear room choices, request status and timely decisions | High: their booking routine changes | Primary users and pilot testers | Medium: validate usability and priority needs | Brief demonstrations and task-based testing; offer accessible feedback options |
 | S05 — Event attendees (group) | Reliable venue details and accessible meeting arrangements | High: errors or venue changes can prevent participation | Affected beneficiaries | Low formal authority; important lived experience | Ask organizers to relay changes promptly; invite feedback from affected attendees |
@@ -200,7 +200,7 @@ The needs below connect stakeholders to those outcomes. Product-facing needs inc
   <li><h4>SR05 — Change or cancel a request</h4><p><strong>Stakeholder:</strong> S04 club organizers. <strong>Supports:</strong> BR01, BR02.</p><p>Organizers need to release unwanted rooms and request changes without losing track of the current decision.</p><p><strong>User story:</strong> As a club organizer, I want to cancel or request a change to my booking so that room allocations reflect my event’s current needs.</p></li>
   <li><h4>SR06 — Complete booking tasks using a keyboard</h4><p><strong>Stakeholders:</strong> S04 club organizers and S08 Accessibility Office. <strong>Supports:</strong> BR03.</p><p>People who do not use a pointer need an operable request and status journey.</p><p><strong>User story:</strong> As an organizer using a keyboard, I want to reach and operate every booking control so that I can manage my request independently.</p></li>
   <li><h4>SR07 — Keep booking information within authorized roles</h4><p><strong>Stakeholder:</strong> S07 IT Services. <strong>Supports:</strong> BR03.</p><p>Support staff need access controls that protect requester information while allowing authorized operational work.</p><p><strong>User story:</strong> As an IT support analyst, I want permissions enforced for every booking action so that users can access only the records and functions assigned to their role.</p></li>
-  <li><h4>SR08 — Evaluate the pilot using evidence</h4><p><strong>Stakeholders:</strong> S01 sponsor and S02 project lead. <strong>Supports:</strong> BR01–BR03.</p><p>The sponsor needs decision-time and conflict evidence, alongside participant feedback, before approving expansion.</p><p><strong>User story:</strong> As the sponsor, I want an aggregate pilot report so that I can assess the agreed outcomes without inspecting unnecessary personal booking details.</p></li>
+  <li><h4>SR08 — Evaluate the pilot using evidence</h4><p><strong>Stakeholders:</strong> S01 sponsor and S02 you, as project lead. <strong>Supports:</strong> BR01–BR03.</p><p>The sponsor needs decision-time and conflict evidence, alongside participant feedback, before approving expansion.</p><p><strong>User story:</strong> As the sponsor, I want an aggregate pilot report so that I can assess the agreed outcomes without inspecting unnecessary personal booking details.</p></li>
   <li><h4>SR09 — Agree who covers the approval queue</h4><p><strong>Stakeholder:</strong> S06 Facilities. <strong>Supports:</strong> BR01.</p><p>Facilities needs a named approver and a deputy for each pilot working day, with an agreed escalation route. This is an operating arrangement, not a software feature.</p></li>
   <li><h4>SR10 — Prepare people for the pilot</h4><p><strong>Stakeholders:</strong> S04 club organizers, S06 Facilities and S08 Accessibility Office. <strong>Supports:</strong> BR01, BR03.</p><p>Participants need an accessible introduction, practice tasks and an assisted booking route before using the new process.</p></li>
   <li><h4>SR11 — Agree calendar support responsibilities</h4><p><strong>Stakeholders:</strong> S07 IT Services and S10 RoomCloud Ltd. <strong>Supports:</strong> BR01, BR02.</p><p>The support teams need an agreed interface contract, incident contact and maintenance-notice arrangement before the pilot relies on the calendar integration.</p></li>
@@ -249,7 +249,7 @@ These illustrative ratings apply to the four-week pilot. Likelihood is **1 = unl
 | --- | --- | --- | --- | --- | --- |
 | R01 — Conflicting room confirmations | 3 — Likely | 3 — Serious | 9 — Highest | Technical lead: test concurrent approvals and calendar failure states; implement atomic availability checks. Facilities: reconcile existing bookings before launch. | 1 × 3 = 3; a missed conflict could still disrupt an event. Facilities monitors daily. |
 | R02 — Unauthorized access to booking details | 2 — Possible | 3 — Serious | 6 | IT Services: enforce record-level authorization, minimize collected data, test cross-user access and review logs. | 1 × 3 = 3; access-control defects remain possible and require monitoring. |
-| R03 — Organizers continue using scattered channels | 3 — Likely | 2 — Significant | 6 | Project lead and club representatives: test the workflow early, explain the agreed route and retain an assisted option. | 2 × 2 = 4; some requests may still need redirection and support. |
+| R03 — Organizers continue using scattered channels | 3 — Likely | 2 — Significant | 6 | You and club representatives: test the workflow early, explain the agreed route and retain an assisted option. | 2 × 2 = 4; some requests may still need redirection and support. |
 | R04 — Calendar service unavailable | 2 — Possible | 2 — Significant | 4 | IT Services and supplier: agree escalation, make failed checks visible and keep requests pending until availability can be verified. | 1 × 2 = 2; an outage can still delay decisions. |
 | R05 — A booking journey excludes some users | 2 — Possible | 3 — Serious | 6 | Accessibility Office and technical lead: test representative journeys early, correct barriers and provide an assisted route. | 1 × 3 = 3; untested access needs can still emerge during the pilot. |
 
