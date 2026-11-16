@@ -56,6 +56,17 @@ p + p { margin-top: 1rem; }
 .hero h1 span { color: var(--sky); }
 .hero-intro { font-size: 1.2rem; max-width: 48ch; margin-top: 26px; }
 .button-row { display: flex; align-items: center; gap: 20px 26px; flex-wrap: wrap; margin-top: 32px; }
+/* Homepage pathways: two audience entry points in the hero. The first (industry upskilling) is the page's one yellow, high-value button. */
+.pathway-prompt { margin-top: 30px; font-size: .82rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--sky); }
+.pathways { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 620px; }
+.pathway { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 4px 16px; height: 100%; padding: 18px 20px; text-decoration: none; background: var(--midnight); color: #fff; border-radius: 6px; border: 2px solid transparent; }
+.pathway:hover { background: var(--sky); color: #fff; }
+.pathway-for { grid-column: 1 / -1; font-size: .92rem; color: #bcecff; }
+.pathway-title { font-family: var(--heading-font); font-weight: 700; font-size: 1.2rem; line-height: 1.2; }
+.pathway-arrow { font-size: 1.3rem; line-height: 1.2; }
+.pathway-primary { background: var(--nait-yellow); color: var(--midnight); }
+.pathway-primary:hover { background: var(--nait-yellow-hover); color: var(--midnight); }
+.pathway-primary .pathway-for { color: var(--midnight); }
 .button { display: inline-flex; justify-content: center; align-items: center; gap: 24px; background: var(--midnight); color: white; font-weight: 700; font-size: 1rem; padding: 16px 22px; text-decoration: none; line-height: 1.35; border: 2px solid transparent; }
 .button:hover { color: white; background: var(--sky); }
 .button span, .text-link span { display: inline-block; }
@@ -90,7 +101,6 @@ p + p { margin-top: 1rem; }
 .process li > span { background: var(--mist); color: var(--sky); font-size: .85rem; font-weight: 700; width: 39px; height: 39px; display: grid; place-items: center; flex-shrink: 0; }
 .process h3 { font-size: 1.2rem; margin-block: 5px 7px; }
 .process p { font-size: 1rem; color: var(--muted); }
-.panel-note { font-size: .85rem; color: var(--muted); }
 .next-step { background: var(--midnight); border-top: 6px solid var(--ook-blue); color: white; padding-block: 62px; }
 .next-inner { display: flex; align-items: center; justify-content: space-between; gap: 65px; }
 .next-inner > div { max-width: 730px; }
@@ -162,7 +172,10 @@ p + p { margin-top: 1rem; }
   .hero { padding-block: 40px; }
   .hero-grid, .introduction, .example-section { grid-template-columns: 1fr; gap: 32px; }
   .hero h1 { font-size: clamp(2.5rem, 7vw, 3.7rem); }
-  .hero-intro { max-width: 58ch; }
+  .hero-intro { max-width: 58ch; margin-top: 18px; }
+  .pathway-prompt { margin-top: 22px; }
+  .pathways { grid-template-columns: 1fr; gap: 10px; max-width: none; }
+  .pathway { padding: 14px 18px; }
   .hero-photo img { height: auto; aspect-ratio: 16 / 10; object-position: center; }
   .introduction, .example-section { padding-block: 55px; }
   .identity-section { padding-block: 50px; }
@@ -296,3 +309,12 @@ p + p { margin-top: 1rem; }
 
 /* Text for screen readers only, such as the "opens in a new tab" note on external links. */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+/* Pathway pages: linked touchpoint cards that point to existing resources. */
+.prose .touchpoints { list-style: none; padding: 0; margin-block: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.prose .touchpoints li { margin: 0; padding: 0; }
+.touchpoints a { display: grid; gap: 6px; height: 100%; padding: 18px 20px; background: var(--mist); border-top: 3px solid var(--ook-blue); text-decoration: none; color: var(--ink); }
+.touchpoints a:hover { background: #e3edf8; color: var(--ink); }
+.touchpoints strong { font-family: var(--heading-font); color: var(--midnight); font-size: 1.1rem; }
+.touchpoints span { font-size: 1rem; line-height: 1.45; color: var(--muted); }
+.prose .button-row { margin-top: 20px; }
