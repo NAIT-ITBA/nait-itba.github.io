@@ -252,9 +252,8 @@ p + p { margin-top: 1rem; }
 .embed-figure figcaption { color: var(--muted); font-size: 1rem; margin-top: 12px; }
 .embed-figure .diagram-source ol { padding-left: 1.4em; }
 .embed-figure .diagram-source p { margin-block: 10px; }
-/* Fills the column and keeps the diagram’s shape; never shorter than a usable viewer or taller than the screen. */
-.process-embed { display: block; width: 100%; height: auto; aspect-ratio: 7 / 5; min-height: 340px; max-height: 80vh; border: 1px solid var(--line); background: var(--mist); }
-.kanban-embed { display: block; width: 100%; height: 360px; border: 1px solid var(--line); background: var(--mist); }
+/* Both embeds fill the column and keep their shape; never shorter than a usable viewer or taller than the screen. */
+.process-embed, .kanban-embed { display: block; width: 100%; height: auto; aspect-ratio: 7 / 5; min-height: 340px; max-height: 80vh; border: 1px solid var(--line); background: var(--mist); }
 .exemplars .embed-note { font-size: .95rem; color: var(--muted); }
 .diagram-figure { margin-block: 30px; border: 1px solid var(--line); background: #fff; padding: 22px; }
 .diagram-scroll { overflow-x: auto; padding: 15px 5px; }
