@@ -13,13 +13,27 @@ import causes from '../diagrams/booking-causes.mmd?raw';
 
 <h2 id="live-examples" className="first-exemplar">Explore a process and a Kanban board</h2>
 
-These shared examples let you explore two ways of making work visible. They are separate from the fictional room-booking case below.
+These shared examples let you explore two ways of making work visible. The process model follows the fictional room-booking case below; the Kanban board is a separate example.
 
 ### Process model
 
-<iframe className="process-embed" src="https://hub.camunda.io/embed/d90612e8-d03e-48ec-8388-d50486382f8e" title="Shared ITBA process model in Camunda" width="700" height="500" style={{border: '1px solid #ccc'}} loading="lazy" allowFullScreen></iframe>
-
-[Open the process model in Camunda](https://hub.camunda.io/embed/d90612e8-d03e-48ec-8388-d50486382f8e)
+<figure className="embed-figure">
+  <iframe className="process-embed" src="https://hub.camunda.io/embed/933d5fda-b6e9-4a26-b5e3-4d024f9ba5dd" title="Room-booking process model (BPMN), interactive viewer from Camunda" width="700" height="500" loading="lazy" allowFullScreen></iframe>
+  <figcaption>The proposed room-booking process for the pilot, drawn in BPMN. Lanes show who does each step; RoomCloud and the email service sit outside the process. <a href="https://hub.camunda.io/embed/933d5fda-b6e9-4a26-b5e3-4d024f9ba5dd">Open the process model full screen in Camunda</a></figcaption>
+  <details className="diagram-source">
+    <summary>Read a text description of the process model</summary>
+    <p>The process has three lanes: club organizer, booking service and Facilities approver. Two external participants, the RoomCloud room calendar and the email delivery service, exchange messages with it.</p>
+    <ol>
+      <li><strong>Club organizer:</strong> a room is needed for a club event, so the organizer submits a room request (SR01, SOL01).</li>
+      <li><strong>Booking service:</strong> validates the request details. If details are missing, the organizer corrects the flagged fields and the request is validated again.</li>
+      <li><strong>Booking service:</strong> checks room availability with RoomCloud. If the calendar is unavailable, it alerts IT Services, waits 15 minutes and checks again (R04).</li>
+      <li><strong>Facilities approver:</strong> records a decision. If no decision is made within one working day, the request is escalated to a deputy approver while it waits (SR09).</li>
+      <li><strong>Approve:</strong> the booking service reserves the room with RoomCloud. If another booking takes the room first, the request returns to the approver with the conflict (SOL03, R01).</li>
+      <li><strong>Approve or decline:</strong> the booking service updates the request status and notifies the requester through the email service. The process ends when the requester is notified of the decision.</li>
+    </ol>
+    <p>Changes and cancellations (SR05, SOL04) follow their own request path and are not shown.</p>
+  </details>
+</figure>
 
 ### Kanban board
 
