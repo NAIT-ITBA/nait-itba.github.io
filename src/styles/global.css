@@ -147,6 +147,23 @@ p + p { margin-top: 1rem; }
 .faq-item[open] summary { padding-bottom: 3px; }
 .faq-answer { padding-left: 23px; }
 .faq-answer ul { padding-left: 22px; }
+/* Exemplars opening story: the reader decides first, then opens each outcome. */
+.story-scene p { max-width: 85ch; margin-block: 16px; }
+.story-scene .eyebrow { margin-bottom: 0; }
+.story-decision { background: var(--mist); border-top: 4px solid var(--ook-blue); padding: 26px 30px; margin-block: 30px; }
+.exemplars .story-decision h3 { margin-top: 0; }
+.story-decision > p { margin: 0; max-width: 85ch; font-weight: 600; color: var(--midnight); }
+.decision-options { list-style: none; padding: 0; margin: 0 0 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.exemplars .decision-options li { margin: 0; background: #fff; border: 1px solid var(--line); padding: 16px 18px; font-size: 1rem; line-height: 1.5; }
+.decision-options strong { display: block; font-family: var(--heading-font); font-size: 1.4rem; color: var(--sky); margin-bottom: 4px; }
+.story-reveal:first-of-type { border-top: 1px solid var(--line); }
+.story-answer { padding-left: 23px; max-width: 85ch; }
+.story-answer p { margin-block: 12px; }
+.story-answer ul { padding-left: 22px; }
+@media (max-width: 800px) {
+  .story-decision { padding: 22px 20px; }
+  .decision-options { grid-template-columns: 1fr; }
+}
 @media (max-width: 1150px) { .footer-inner { flex-wrap: wrap; } }
 @media print { .faq-item::details-content { display: block; content-visibility: visible; } }
 @media (min-width: 1500px) { .hero-photo img { height: 410px; } }

@@ -5,6 +5,7 @@ interface Props { frontmatter: { title: string; description: string }; }
 const { title, description } = Astro.props.frontmatter;
 
 const assets = [
+  { href: '#story', label: 'A decision to make' },
   { href: '#live-examples', label: 'Process model and Kanban board' },
   { href: '#project', label: 'Example project' },
   { href: '#facilitation', label: 'Facilitation plan' },
@@ -41,7 +42,7 @@ const assets = [
           </ul>
         </nav>
       </div>
-      <a class="button button-yellow" href="#live-examples">Start exploring <span aria-hidden="true">&rarr;</span></a>
+      <a class="button button-yellow" href="#story">Start exploring <span aria-hidden="true">&rarr;</span></a>
     </div>
   </section>
   <PageBanner name="ba-design" lazy />
