@@ -11,63 +11,7 @@ import organization from '../diagrams/project-organization.mmd?raw';
 import context from '../diagrams/booking-context.mmd?raw';
 import causes from '../diagrams/booking-causes.mmd?raw';
 
-<h2 id="story" className="first-exemplar">A decision on Monday morning</h2>
-
-<div className="story-scene">
-  <p className="eyebrow">A fictional scenario</p>
-  <p>Maple Campus has no business analyst. The people who run each service decide on fixes and new tools themselves, and most of the time that works.</p>
-  <p>On Monday morning, Maya Chen, who manages student services for the Maple Student Union, opens an email from a club organizer. Three weeks ago the organizer asked for a room for a 60-person workshop and never heard back. The day before the event, they learned that another club had been given the same room. It is the third complaint like this since September.</p>
-  <p>Maya has run campus services for eleven years. She knows bookings run through an email inbox and a shared spreadsheet. Last spring, a vendor showed her a campus booking system that handles everything online, and the vendor can start next month. Approving it would show the clubs that she is taking the problem seriously.</p>
-</div>
-
-<section className="story-decision" aria-labelledby="decision-heading">
-  <h3 id="decision-heading">You are Maya. What do you decide?</h3>
-  <ul className="decision-options">
-    <li><strong>A</strong> Approve the new booking system now. The process is clearly outdated and the vendor is ready.</li>
-    <li><strong>B</strong> Tell Facilities to answer every request within one working day. The process is fine; people need to move faster.</li>
-    <li><strong>C</strong> Hold off until you know why confirmations are slow, then choose a fix.</li>
-  </ul>
-  <p>Choose before you read on. Then ask yourself: what would you need to know to be confident in that choice?</p>
-</section>
-
-<details className="faq-item story-reveal">
-  <summary>What happened when Maya decided on instinct</summary>
-  <div className="story-answer">
-    <p>Maya approved the new system. It made sense: the old process was out of date, and she had seen enough complaints to know clubs were frustrated.</p>
-    <p>Six months later, the system is live and the budget is spent. There is an online request form, but many organizers still email or message Facilities because that is what they know. Requests still arrive without capacity or access needs, so coordinators still chase details. One coordinator still approves every booking, and when she is away, requests wait. Confirmations are a little faster. The complaints continue.</p>
-    <p>Option B would have stalled in the same place: replying faster does not fill in missing details or cover an absent approver. Neither decision was careless. Both drew on real experience, but nobody had checked what was actually causing the delay.</p>
-  </div>
-</details>
-
-<details className="faq-item story-reveal">
-  <summary>The same decision, with a business analyst</summary>
-  <div className="story-answer">
-    <p>Now imagine Maple Campus has a business analyst, Jordan Patel. Before anyone picks a fix, Jordan asks questions:</p>
-    <ul>
-      <li>Where do requests wait, and for how long?</li>
-      <li>What information is missing when a request arrives?</li>
-      <li>Who approves bookings when the usual coordinator is away?</li>
-      <li>How do confirmed bookings get into the room calendar?</li>
-    </ul>
-    <p>A <a href="#facilitation">90-minute workshop</a> with organizers, Facilities and the Accessibility Office, plus a sample of recent requests, points to <a href="#causes">three likely causes</a>: requests arrive incomplete through several channels, one coordinator approves everything, and the calendar is updated by hand.</p>
-    <p>Maya still makes the decision. But now she approves a four-week pilot with <a href="#requirements">clear targets</a>: a decision within one working day, no conflicting confirmations and an accessible booking route for every club. The pilot adds a request checklist and a deputy approver, and the team plans for <a href="#risks">what could go wrong</a> before launch. If the pilot works, Maya has evidence to expand it. If it does not, being wrong costs four weeks, not a system contract.</p>
-  </div>
-</details>
-
-<ExampleTable label="Comparing a decision made on instinct with one supported by business analysis">
-
-| Aspect | On instinct | With a business analyst |
-| --- | --- | --- |
-| Starting point | A familiar solution | The causes of the problem |
-| Who was heard | The decision-maker and a vendor | Organizers, Facilities, IT Services and the Accessibility Office |
-| How success is measured | A sense that things improved | Agreed targets checked against a baseline |
-| Cost of being wrong | A full system contract | A four-week pilot |
-
-</ExampleTable>
-
-The rest of this page shows the work behind that second decision: a process model and Kanban board, then the full Maple Campus case.
-
-<h2 id="live-examples">Explore a process and a Kanban board</h2>
+<h2 id="live-examples" className="first-exemplar">Explore a process and a Kanban board</h2>
 
 These shared examples let you explore two ways of making work visible. The process model follows the fictional room-booking case below; the Kanban board is a separate example.
 

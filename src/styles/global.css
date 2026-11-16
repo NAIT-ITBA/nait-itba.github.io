@@ -37,12 +37,13 @@ p + p { margin-top: 1rem; }
 .skip-link { position: absolute; top: -100px; left: 16px; padding: 12px 20px; background: white; z-index: 20; }
 .skip-link:focus { top: 12px; }
 .site-header { background: var(--midnight); }
-.masthead { min-height: 104px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
-.brand { display: flex; gap: 25px; align-items: center; text-decoration: none; color: white; }
+/* Logo, program name and official link sit in three columns. The name is centred and kept apart from the logo, not joined to it as a lockup. */
+.masthead { min-height: 104px; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 30px; }
+.brand { display: flex; align-items: center; justify-self: start; text-decoration: none; color: white; }
 .brand:hover { color: white; }
 .brand img { width: 200px; height: 50px; object-fit: contain; }
-.brand span { border-left: 1px solid #748bb0; padding-left: 25px; line-height: 1.3; font-size: 1rem; font-weight: 600; }
-.official-link { color: white; font-size: .95rem; text-decoration: none; }
+.site-title { margin: 0; color: white; font-family: var(--heading-font); font-size: 1.15rem; font-weight: 700; line-height: 1.25; text-align: center; white-space: nowrap; }
+.official-link { justify-self: end; text-align: right; color: white; font-size: .95rem; text-decoration: none; }
 .official-link:hover { color: #bcecff; text-decoration: underline; }
 .official-link span { margin-left: 16px; }
 .site-header a:focus-visible, .site-footer a:focus-visible, .next-step a:focus-visible { outline-color: white; }
@@ -148,19 +149,22 @@ p + p { margin-top: 1rem; }
 .faq-answer { padding-left: 23px; }
 .faq-answer ul { padding-left: 22px; }
 /* Exemplars opening story: the reader decides first, then opens each outcome. */
-.story-scene p { max-width: 85ch; margin-block: 16px; }
-.story-scene .eyebrow { margin-bottom: 0; }
+.story-intro { padding-block: 50px 55px; }
+.story-intro h2 { margin-block: 6px 16px; }
+.story-scene { max-width: 85ch; font-size: 1.15rem; }
+.story-intro .eyebrow { margin-bottom: 0; }
 .story-decision { background: var(--mist); border-top: 4px solid var(--ook-blue); padding: 26px 30px; margin-block: 30px; }
-.exemplars .story-decision h3 { margin-top: 0; }
+.story-decision h3 { margin: 0 0 18px; font-size: 1.5rem; }
 .story-decision > p { margin: 0; max-width: 85ch; font-weight: 600; color: var(--midnight); }
 .decision-options { list-style: none; padding: 0; margin: 0 0 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.exemplars .decision-options li { margin: 0; background: #fff; border: 1px solid var(--line); padding: 16px 18px; font-size: 1rem; line-height: 1.5; }
+.decision-options li { margin: 0; background: #fff; border: 1px solid var(--line); padding: 16px 18px; font-size: 1rem; line-height: 1.5; }
 .decision-options strong { display: block; font-family: var(--heading-font); font-size: 1.4rem; color: var(--sky); margin-bottom: 4px; }
 .story-reveal:first-of-type { border-top: 1px solid var(--line); }
 .story-answer { padding-left: 23px; max-width: 85ch; }
 .story-answer p { margin-block: 12px; }
 .story-answer ul { padding-left: 22px; }
 @media (max-width: 800px) {
+  .story-intro { padding-block: 38px 42px; }
   .story-decision { padding: 22px 20px; }
   .decision-options { grid-template-columns: 1fr; }
 }
@@ -179,8 +183,8 @@ p + p { margin-top: 1rem; }
 @media (max-width: 800px) {
   .shell { width: calc(100% - 40px); }
   .masthead { min-height: 90px; }
-  .brand { gap: 16px; }
-  .brand span { padding-left: 16px; font-size: .9rem; }
+  .masthead { gap: 16px; }
+  .site-title { font-size: 1rem; }
   .brand img { width: 42px; height: 56px; }
   .official-link { max-width: 125px; line-height: 1.3; font-size: .85rem; }
   .official-link span { margin-left: 4px; }
@@ -209,9 +213,13 @@ p + p { margin-top: 1rem; }
   .footer-links { gap: 18px; }
   .desktop-break { display: none; }
 }
+/* Only narrow phones let the program name wrap onto two balanced lines. */
+@media (max-width: 520px) {
+  .site-title { white-space: normal; text-wrap: balance; font-size: .95rem; }
+}
 @media (max-width: 400px) {
   .shell { width: calc(100% - 32px); }
-  .brand span { font-size: .8rem; }
+  .masthead { gap: 12px; }
   .brand img { width: 38px; }
   .official-link { max-width: 95px; font-size: .8rem; }
   .nav-inner { gap: 0 17px; }
