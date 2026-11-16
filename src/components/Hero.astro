@@ -7,11 +7,24 @@ import programImage from '../assets/it-business-analysis.jpg';
     <div class="hero-copy">
       <p class="eyebrow">Discover IT Business Analysis</p>
       <h1 id="hero-title">Good questions.<br /><span>Meaningful change.</span></h1>
-      <p class="hero-intro">Connect people, business needs and technology. Explore how business analysis helps turn a better understanding of a problem into a thoughtful next step.</p>
-      <div class="button-row">
-        <a class="button" href="/business-analysis/">See business analysis in action <span aria-hidden="true">→</span></a>
-        <a class="text-link" href="https://nait.ca/itbusiness">Explore the diploma <span aria-hidden="true">↗</span></a>
-      </div>
+      <p class="hero-intro">Connect people, business needs and technology. Business analysis turns a better understanding of a problem into a thoughtful next step.</p>
+      <p class="pathway-prompt" id="pathways-label">Where are you starting from?</p>
+      <ul class="pathways" aria-labelledby="pathways-label">
+        <li>
+          <a class="pathway pathway-primary" href="/upgrade-your-skills/">
+            <span class="pathway-for">Already working?</span>
+            <span class="pathway-title">Upgrade your industry skills</span>
+            <span class="pathway-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="pathway" href="/start-your-career/">
+            <span class="pathway-for">Recently graduated?</span>
+            <span class="pathway-title">Start your career preparation</span>
+            <span class="pathway-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ul>
     </div>
     <figure class="hero-photo">
       <Image src={programImage} alt="A person maps ideas on a glass wall covered in sticky notes while holding a laptop." widths={[560, 900, 1200]} sizes="(max-width: 800px) 100vw, 50vw" width={1200} loading="eager" fetchpriority="high" format="webp" />

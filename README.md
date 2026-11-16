@@ -24,6 +24,7 @@ Astro generates static HTML in `dist/`. No server runtime, database, account sys
 ## Edit content
 
 - `src/pages/index.mdx` — discovery landing page.
+- `src/pages/upgrade-your-skills.mdx` and `src/pages/start-your-career.mdx` — audience pathways linked from the homepage hero: working professionals upgrading their industry skills (the hero's primary, yellow button) and recent graduates exploring a diploma. Both route visitors to existing site resources and to NAIT for program, admission and delivery details.
 - `src/pages/business-analysis.mdx` — illustrative walkthrough and an example of long-form MDX authoring.
 - `src/pages/our-identity.mdx` — prospective-student adaptation of `brightspace/pages/ITBA2006/ITBA2006-identity-statements.html` in the course-development repository; professional source links and connections to the exemplars.
 - `src/pages/your-success.mdx` — the program's study-strategy and portfolio message, grounded in the owner's direction and `brightspace/pages/ITBA1001/ITBA1001-notion-setup.html`. The maintained template link is `https://qr.codes/np6WgU` (resolves to the public Student IT Business Analyst Dashboard). Describe the educational intent; link to the template and Notion for current capabilities, eligibility, prices and setup steps. Do not promise outcomes or mirror a template feature inventory. The Notion connector's retrieved template verification was expired at review, so it is not treated as a currently verified feature specification.
@@ -39,7 +40,7 @@ Astro generates static HTML in `dist/`. No server runtime, database, account sys
 
 Internal links start at `/`, because this repository is the organization's root website. Do not set an Astro `base` to the repository name. `site` is configured as `https://nait-itba.github.io`.
 
-The example booking scenario is fictional and labelled as illustrative. Program details, admission requirements, tuition, and dates link to the official NAIT program page rather than duplicating information that changes.
+The room-booking scenario is fictional. Present it to visitors as one everyday example of an approach that applies in any industry, not as the program's subject; keep headings and framing generic ("A better outcome…"). Program details, admission requirements, tuition, and dates link to the official NAIT program page rather than duplicating information that changes.
 
 Content rule: when an authoritative external source maintains the information, link to it under the relevant FAQ question. Do not hard-code program duration, course counts, workload, admission availability, contact details, salary figures, survey statistics, or other externally maintained answers. Use descriptive link labels and identify membership requirements. [IIBA’s 2026 public highlights](https://www.iiba.org/career-resources/the-global-state-of-business-analysis/the-global-state-of-business-analysis-reports-and-surveys/the-global-state-of-business-analysis-2026/) are accessible without signing in; the complete report is a membership benefit. The website links to the public overview and does not host the report.
 
