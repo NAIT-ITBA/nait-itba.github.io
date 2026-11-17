@@ -5,6 +5,7 @@ import '@fontsource/source-sans-3/latin-700.css';
 import '../styles/global.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import PrivacyNotice from '../components/PrivacyNotice.astro';
 
 interface Props {
   title: string;
@@ -35,5 +36,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <SiteHeader />
     <main id="main" tabindex="-1"><slot /></main>
     <SiteFooter />
+    <PrivacyNotice />
   </body>
 </html>

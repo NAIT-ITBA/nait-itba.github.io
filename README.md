@@ -71,7 +71,12 @@ Only files in the generated `dist/` artifact are deployed. Other organization re
 
 Keep internal planning, student records, consent records, credentials, and unapproved student material outside this public repository. Review program wording and media before adding them.
 
-The site itself has no forms or analytics. Assets, body fonts, and the Mermaid renderer are served from the site. The Exemplars page uses client-side Mermaid rendering and explicitly requested third-party Camunda and Trello iframes; those providers control their own network requests, cookies and access requirements. The Trello iframe uses its compact `.html` preview because its full board page blocks framing; a direct board link is always present. **Industry loads from Adobe Fonts**, including Adobe's stylesheet/font network requests. GitHub Pages also logs visitor IP addresses for security. Do not describe the hosting arrangement as collecting no data.
+The site itself has no forms or analytics. Assets, body fonts, and the Mermaid renderer are served from the site. The Exemplars page uses client-side Mermaid rendering and explicitly requested third-party Camunda and Trello iframes; those providers control their own network requests, cookies and access requirements. The Trello iframe uses its compact `.html` preview because its full board page blocks framing; a direct board link is always present. **Industry loads from Adobe Fonts**, including Adobe's stylesheet/font network requests.
+
+> [!IMPORTANT]
+> GitHub Pages also logs visitor IP addresses for security. Do not describe the hosting arrangement as collecting no data.
+
+`PrivacyNotice.astro` displays a hosting privacy acknowledgement on the first page visited. “I understand and continue” saves a versioned flag in `sessionStorage`, suppressing the dialog for subsequent pages and reloads in that tab session. This acknowledges collection that already occurs on the initial request; it does not enable or disable GitHub logging. If browser storage is blocked, the notice can still be dismissed but returns on the next page. With JavaScript disabled, a static notice is shown. The notice links directly to GitHub Pages data collection documentation and GitHub's Privacy Statement.
 
 The exemplar case, people, organizations, requirements, success targets, causal hypotheses and risk ratings are fictional teaching material. The two supplied embeds are separate examples, not evidence for the fictional case. IIBA's requirements-type visual is linked at its official PDF URL with attribution; it is not copied or rehosted. Keep future externally maintained facts linked to their authoritative source.
 

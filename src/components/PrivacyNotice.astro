@@ -1,0 +1,68 @@
+<dialog id="hosting-privacy" aria-labelledby="hosting-privacy-title" aria-describedby="hosting-privacy-description">
+  <h2 id="hosting-privacy-title">Hosting privacy notice</h2>
+  <p id="hosting-privacy-description">This website is hosted on GitHub Pages. GitHub logs and stores visitors’ IP addresses for security purposes, including when you first loaded this page.</p>
+  <p class="privacy-links">
+    Learn more: <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection" target="_blank" rel="noopener noreferrer">GitHub Pages data collection (opens in a new tab)</a>
+    and <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement (opens in a new tab)</a>.
+  </p>
+  <form method="dialog">
+    <button class="button" type="submit" autofocus>I understand and continue</button>
+  </form>
+</dialog>
+
+<noscript>
+  <aside class="privacy-fallback" aria-label="Hosting privacy notice">
+    <p>This website is hosted on GitHub Pages. GitHub logs and stores visitors’ IP addresses for security purposes, including when you first loaded this page.</p>
+    <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">Learn more about GitHub Pages data collection</a>.
+  </aside>
+</noscript>
+
+<script>
+  const notice = document.querySelector<HTMLDialogElement>('#hosting-privacy');
+  const storageKey = 'hosting-privacy-acknowledged-v1';
+
+  if (notice) {
+    let acknowledged = false;
+    try {
+      acknowledged = sessionStorage.getItem(storageKey) === 'true';
+    } catch {
+      // Browsers that block storage still allow the notice to be dismissed.
+    }
+
+    notice.addEventListener('cancel', (event) => event.preventDefault());
+    notice.querySelector('form')?.addEventListener('submit', () => {
+      try {
+        sessionStorage.setItem(storageKey, 'true');
+      } catch {
+        // Without storage, the notice will appear again on the next page.
+      }
+    });
+    notice.addEventListener('close', () => {
+      document.querySelector<HTMLElement>('#main')?.focus({ preventScroll: true });
+    });
+
+    if (!acknowledged) notice.showModal();
+  }
+</script>
+
+<style>
+  dialog {
+    width: min(38rem, calc(100% - 2rem));
+    max-height: calc(100dvh - 2rem);
+    overflow-y: auto;
+    padding: clamp(1.25rem, 4vw, 2rem);
+    border: 1px solid var(--line);
+    border-top: 5px solid var(--ook-blue);
+    border-radius: 8px;
+    color: var(--ink);
+    background: white;
+    box-shadow: 0 16px 60px #002d7440;
+  }
+  dialog::backdrop { background: #082147b3; }
+  h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+  .privacy-links { font-size: 1rem; }
+  form { margin-top: 1.5rem; }
+  button { font-family: inherit; cursor: pointer; }
+  button:focus-visible { outline: 3px solid var(--sky); outline-offset: 4px; }
+  .privacy-fallback { margin: 1rem; padding: 1.5rem; background: var(--mist); border-left: 4px solid var(--ook-blue); }
+</style>
